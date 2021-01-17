@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/vintage-by-vo/static/css/main.56505268.chunk.css",
-    "main.js": "/vintage-by-vo/static/js/main.46c75c09.chunk.js",
-    "main.js.map": "/vintage-by-vo/static/js/main.46c75c09.chunk.js.map",
-    "runtime-main.js": "/vintage-by-vo/static/js/runtime-main.7e96481d.js",
-    "runtime-main.js.map": "/vintage-by-vo/static/js/runtime-main.7e96481d.js.map",
+    "main.js": "/vintage-by-vo/static/js/main.b4cb21bc.chunk.js",
+    "main.js.map": "/vintage-by-vo/static/js/main.b4cb21bc.chunk.js.map",
+    "runtime-main.js": "/vintage-by-vo/static/js/runtime-main.3268fe94.js",
+    "runtime-main.js.map": "/vintage-by-vo/static/js/runtime-main.3268fe94.js.map",
     "static/css/2.ae9f1eb3.chunk.css": "/vintage-by-vo/static/css/2.ae9f1eb3.chunk.css",
-    "static/js/2.540e4a6c.chunk.js": "/vintage-by-vo/static/js/2.540e4a6c.chunk.js",
-    "static/js/2.540e4a6c.chunk.js.map": "/vintage-by-vo/static/js/2.540e4a6c.chunk.js.map",
-    "static/js/3.c3b997f9.chunk.js": "/vintage-by-vo/static/js/3.c3b997f9.chunk.js",
-    "static/js/3.c3b997f9.chunk.js.map": "/vintage-by-vo/static/js/3.c3b997f9.chunk.js.map",
+    "static/js/2.b369ea56.chunk.js": "/vintage-by-vo/static/js/2.b369ea56.chunk.js",
+    "static/js/2.b369ea56.chunk.js.map": "/vintage-by-vo/static/js/2.b369ea56.chunk.js.map",
+    "static/js/3.d940cedc.chunk.js": "/vintage-by-vo/static/js/3.d940cedc.chunk.js",
+    "static/js/3.d940cedc.chunk.js.map": "/vintage-by-vo/static/js/3.d940cedc.chunk.js.map",
     "index.html": "/vintage-by-vo/index.html",
     "static/css/2.ae9f1eb3.chunk.css.map": "/vintage-by-vo/static/css/2.ae9f1eb3.chunk.css.map",
     "static/css/main.56505268.chunk.css.map": "/vintage-by-vo/static/css/main.56505268.chunk.css.map",
-    "static/js/2.540e4a6c.chunk.js.LICENSE.txt": "/vintage-by-vo/static/js/2.540e4a6c.chunk.js.LICENSE.txt",
+    "static/js/2.b369ea56.chunk.js.LICENSE.txt": "/vintage-by-vo/static/js/2.b369ea56.chunk.js.LICENSE.txt",
     "static/media/App.css": "/vintage-by-vo/static/media/Monday_Routines.3b66228d.woff",
     "static/media/index.css": "/vintage-by-vo/static/media/Monday_Routines.e4f791a0.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.7e96481d.js",
+    "static/js/runtime-main.3268fe94.js",
     "static/css/2.ae9f1eb3.chunk.css",
-    "static/js/2.540e4a6c.chunk.js",
+    "static/js/2.b369ea56.chunk.js",
     "static/css/main.56505268.chunk.css",
-    "static/js/main.46c75c09.chunk.js"
+    "static/js/main.b4cb21bc.chunk.js"
   ]
 }
