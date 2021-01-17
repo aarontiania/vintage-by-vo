@@ -7,16 +7,6 @@ white
 #423A39
 */
 
-.App {
-  font-family: Helvetica;
-  text-align: center;
-  background-color: white;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -28,9 +18,28 @@ white
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.App {
+  font-family: Helvetica;
+  text-align: center;
+  background-color: white;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: Monday;
+  src: local("Monday Routines"),
+    local("Monday_Routines"),
+    url(./fonts/Monday_Routines.woff) format("woff");
 }
 
 .App-header {
@@ -48,20 +57,41 @@ white
   color: #61dafb;
 }
 
-@font-face {
-  font-family: Monday;
-  src: local("Monday Routines"),
-       local("Monday_Routines"),
-       url(./fonts/Monday_Routines.woff) format("woff");
+.bannerpadding {
+  padding-top: 5vh;
 }
 
 .scriptbrandfont {
   font-family: "Monday";
   font-size: 100px;
   color: #423A39;
+  text-shadow: 1px 1px #F5F0EB;
 }
 
-.navbar{
+.sectionheader {
+  padding-top: 10vh;
+  font-family: 'monday';
+  font-size: 100px;
+  color: #423A39;
+  text-shadow: 1px 1px #F5F0EB;
+}
+
+.navbar {
   padding-top: 1vh;
-  background-color:#F5F0EB;
-} 
+  background-color: #F5F0EB;
+}
+
+.productimg {
+  max-width: 30vh;
+  max-height: 30vh;
+}
+.productname {
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+.productprice {
+  padding: 1vh 1vh 1vh;
+  font-family: Helvetica;
+  font-style: italic;
+}
