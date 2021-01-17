@@ -48,9 +48,6 @@ white
   color: #61dafb;
 }
 
-/* .scriptbrandfont {
-  font-family: 'Monday';
-} */
 @font-face {
   font-family: Monday;
   src: local("Monday Routines"),
@@ -63,3 +60,8 @@ white
   font-size: 100px;
   color: #423A39;
 }
+
+.navbar{
+  padding-top: 1vh;
+  background-color:#F5F0EB;
+} 

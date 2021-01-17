@@ -1,7 +1,7 @@
 import './css/App.css';
 import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       </Navbar.Brand>
 
 
-      <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar expand="lg" sticky="top">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="m-auto">
@@ -23,7 +23,6 @@ function App() {
             <Nav.Link href="#home" active>Home</Nav.Link>
             <Nav.Link href="#link">Collection</Nav.Link>
             <Nav.Link href="#link">Sales</Nav.Link>
-            <Nav.Link href="#link">Contact</Nav.Link>
             <NavDropdown title="About Us" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">About ya girl</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Item Care</NavDropdown.Item>
@@ -31,10 +30,14 @@ function App() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">My bunny</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="#link">Contact</Nav.Link>
 
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+
+      <br />
+      <Image src="./images/banner.png" fluid />
 
       <p class="scriptbrandfont">testing</p>
       <p class="scriptbrandfont">testing</p>
