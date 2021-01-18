@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/vintage-by-vo/static/css/main.2e5eeb89.chunk.css",
-    "main.js": "/vintage-by-vo/static/js/main.b300eda9.chunk.js",
-    "main.js.map": "/vintage-by-vo/static/js/main.b300eda9.chunk.js.map",
+    "main.css": "/vintage-by-vo/static/css/main.c7769bc1.chunk.css",
+    "main.js": "/vintage-by-vo/static/js/main.b4b1deda.chunk.js",
+    "main.js.map": "/vintage-by-vo/static/js/main.b4b1deda.chunk.js.map",
     "runtime-main.js": "/vintage-by-vo/static/js/runtime-main.3268fe94.js",
     "runtime-main.js.map": "/vintage-by-vo/static/js/runtime-main.3268fe94.js.map",
     "static/css/2.ae9f1eb3.chunk.css": "/vintage-by-vo/static/css/2.ae9f1eb3.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.d940cedc.chunk.js.map": "/vintage-by-vo/static/js/3.d940cedc.chunk.js.map",
     "index.html": "/vintage-by-vo/index.html",
     "static/css/2.ae9f1eb3.chunk.css.map": "/vintage-by-vo/static/css/2.ae9f1eb3.chunk.css.map",
-    "static/css/main.2e5eeb89.chunk.css.map": "/vintage-by-vo/static/css/main.2e5eeb89.chunk.css.map",
+    "static/css/main.c7769bc1.chunk.css.map": "/vintage-by-vo/static/css/main.c7769bc1.chunk.css.map",
     "static/js/2.b369ea56.chunk.js.LICENSE.txt": "/vintage-by-vo/static/js/2.b369ea56.chunk.js.LICENSE.txt",
     "static/media/App.css": "/vintage-by-vo/static/media/Monday_Routines.3b66228d.woff",
     "static/media/index.css": "/vintage-by-vo/static/media/Monday_Routines.e4f791a0.ttf"
@@ -21,7 +21,7 @@
     "static/js/runtime-main.3268fe94.js",
     "static/css/2.ae9f1eb3.chunk.css",
     "static/js/2.b369ea56.chunk.js",
-    "static/css/main.2e5eeb89.chunk.css",
-    "static/js/main.b300eda9.chunk.js"
+    "static/css/main.c7769bc1.chunk.css",
+    "static/js/main.b4b1deda.chunk.js"
   ]
 }
