@@ -64,7 +64,8 @@ export default class Collection extends Component {
                         {
                             this.state.products.map((productChunk) => {
                                 const productsCols = productChunk.map((product) => {
-                                    if (product.price.status = "ONSALE") {
+                                    console.log(product.sold)
+                                    if (product.sold === false) {
                                         return (
                                             <Col xs lg="2">
                                                 <Image src={Object.values(product.preview)[5]}
@@ -87,28 +88,27 @@ export default class Collection extends Component {
         }
     }
 }
-// "products":[
-//     {"id":212493390,
-//     "slug":"jazzyboo1-lululemon-black-lululemon-leggings-great",
-//     "preview":
-//         {
-//             "150":"https://d2h1pu99sxkfvn.cloudfront.net/b0/8275080/918669186_b2f630c3225d405fa64ccc2a6a30b4b0/P2.jpg",
-//             "210":"https://d2h1pu99sxkfvn.cloudfront.net/b0/8275080/918669186_b2f630c3225d405fa64ccc2a6a30b4b0/P4.jpg",
-//             "320":"https://d2h1pu99sxkfvn.cloudfront.net/b0/8275080/918669186_b2f630c3225d405fa64ccc2a6a30b4b0/P5.jpg",
-//             "480":"https://d2h1pu99sxkfvn.cloudfront.net/b0/8275080/918669186_b2f630c3225d405fa64ccc2a6a30b4b0/P6.jpg",
-//             "640":"https://d2h1pu99sxkfvn.cloudfront.net/b0/8275080/918669186_b2f630c3225d405fa64ccc2a6a30b4b0/P1.jpg",
-//             "960":"https://d2h1pu99sxkfvn.cloudfront.net/b0/8275080/918669186_b2f630c3225d405fa64ccc2a6a30b4b0/P7.jpg",
-//             "1280":"https://d2h1pu99sxkfvn.cloudfront.net/b0/8275080/918669186_b2f630c3225d405fa64ccc2a6a30b4b0/P8.jpg"},
-//     "has_video":false,
-//     "price":
-//         {
-//             "price_amount":"80.00",
-//             "currency_symbol":"$",
-//             "currency_name":"USD",
-//             "international_shipping_cost":"2.00",
-//             "national_shipping_cost":"6.00",
-//             "discounted_price_amount":null,
-//             "discount_percentage":null},
-//             "sold":false,
-//             "status":"ONSALE"
-//         },
+// {"id":212157839,
+// "slug":"szphia-brandy-melville-john-galt-e9cd",
+// "preview":{
+//     "150":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P2.jpg",
+//     "210":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P4.jpg",
+//     "320":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P5.jpg",
+//     "480":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P6.jpg",
+//     "640":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P1.jpg",
+//     "960":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P7.jpg",
+//     "1280":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P8.jpg"
+// },
+// "has_video":
+// false,
+// "price":{
+//     "price_amount":"20.00",
+//     "currency_symbol":"$",
+//     "currency_name":"USD",
+//     "international_shipping_cost":null,
+//     "national_shipping_cost":"4.00",
+//     "discounted_price_amount":null,
+//     "discount_percentage":null
+// },
+// "sold":true,
+// "status":"PURCHASED"},
