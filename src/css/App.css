@@ -86,12 +86,19 @@ white
   max-height: 30vh;
 }
 .productname {
+  color:#423A39;
   font-family: Helvetica;
   font-weight: bold;
 }
+a:hover {
+  color: black;
+}
 
 .productprice {
-  padding: 1vh 1vh 1vh;
   font-family: Helvetica;
   font-style: italic;
+}
+
+.productwidth{
+  max-width: 1000px;
 }
