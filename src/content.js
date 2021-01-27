@@ -5,7 +5,7 @@ import { Spinner } from 'react-bootstrap';
 import Banner from './sections/banner'
 import Designers from './sections/designers';
 import Collection from './sections/collection';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 
@@ -53,7 +53,8 @@ export default class Content extends Component {
             );
         } else {
             return (
-                <main>
+                <div id="collection">
+
                     <Route render={({ location }) => (
                         <TransitionGroup>
                             <CSSTransition
@@ -62,27 +63,41 @@ export default class Content extends Component {
                                 key={location.key}
                                 exit={false}
                             >
-                                <Switch>
-                                    <Route exact path='/vintage-by-vo' render={() => {
-                                        return (<Home products={products} isLoaded={isLoaded} />)
-                                    }} />
-                                    <Route exact path='/vintage-by-vo/collection' render={() => {
-                                        return (<Collection products={products} isLoaded={isLoaded} />)
-                                    }} />
-                                    <Route exact path='/vintage-by-vo/designers' render={() => {
-                                        return (<Designers products={products} isLoaded={isLoaded} />)
-                                    }} />
-                                    <Route render={() =>
-                                        <div>
-                                            <br />
-                                            <h1 className="sectionheader">page not found</h1>
-                                        </div>
-                                    } />
-                                </Switch>
+
+                                <HashRouter>
+                                    <Switch>
+                                        <Route exact path='/' render={() => {
+                                            return (<Home products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route exact path='/#/' render={() => {
+                                            return (<Home products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route exact path='/collection' render={() => {
+                                            return (<Collection products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route exact path='/designers' render={() => {
+                                            return (<Designers products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route render={() => {
+                                            return (
+                                                <div>
+                                                    <br />
+                                                    <h1 className="sectionheader">page not found</h1>
+                                                </div>
+                                            )
+                                        }} />
+                                    </Switch>
+                                </HashRouter>
                             </CSSTransition>
                         </TransitionGroup>
                     )} />
-                </main >
+                    {/* {/* {console.log(window.location.hash)} */}
+                    {/* {console.log("/vintage-by-vo/#" + window.location.href.split('/#')[1])} */}
+                    {/* {console.log("/vintage-by-vo/" + window.location.hash)} */}
+                    {/* <Redirect to={"/vintage-by-vo/" + window.location.hash} /> */}
+                    {/* <Redirect to={"/vintage-by-vo/#"} /> */}
+
+                </div >
             );
         }
     }

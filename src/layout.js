@@ -6,11 +6,11 @@ import Header from './sections/header-nav';
 export default class Layout extends Component {
     render() {
         return (
-            <div>
+            <>
                 <Header />
                 <Content />
                 {/* <Footer /> */}
-            </div>
+            </>
         );
     }
 }

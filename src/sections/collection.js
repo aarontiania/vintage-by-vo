@@ -39,7 +39,7 @@ export default class Collection extends Component {
 
     getQueryStringValue(key) {
         // eslint-disable-next-line
-        return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+        return decodeURIComponent(window.location.hash.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
     }
 
     imageClick(link) {
@@ -78,7 +78,6 @@ export default class Collection extends Component {
                     let title = formatProductTitle(product.slug, depop);
                     if (searchBrandName(title, brands[brandSpecified])) {
                         specificItems.push(product);
-                        console.log("pushed")
                     }
                 }
             });
@@ -93,7 +92,7 @@ export default class Collection extends Component {
                         {
                             chunkedproducts.map((productChunk) => {
                                 const productsCols = productChunk.map((product) => {
-                                    if (product.sold === false) {
+                                    if (product.sold === false && product.status === "ONSALE") {
                                         return (
                                             <Col xs lg="2">
                                                 <Image src={Object.values(product.preview)[5]}
@@ -128,7 +127,7 @@ export default class Collection extends Component {
                         {
                             chunkedproducts.map((productChunk) => {
                                 const productsCols = productChunk.map((product) => {
-                                    if (product.sold === false) {
+                                    if (product.sold === false && product.status === "ONSALE") {
                                         return (
                                             <Col xs lg="2">
                                                 <Image src={Object.values(product.preview)[5]}

@@ -2,7 +2,7 @@ import '../css/App.css';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Image, Row, Col, Spinner, Nav } from 'react-bootstrap';
+import { Container, Image, Spinner, Nav } from 'react-bootstrap';
 
 export default class Designers extends Component {
 
@@ -10,9 +10,8 @@ export default class Designers extends Component {
         super(props);
         this.state = {
             depop: "Vintagebyvo",
-            depopLink: "https://www.depop.com/products/",
             isLoaded: this.props.isLoaded,
-            products: this.props.products
+            // products: this.props.products
         }
     }
 
@@ -22,7 +21,7 @@ export default class Designers extends Component {
     }
 
     render() {
-        const { isLoaded, products, depopLink } = this.state;
+        const { isLoaded } = this.state;
         if (!isLoaded) {
             return (
                 <div id="designers">
@@ -37,7 +36,7 @@ export default class Designers extends Component {
                 <div id="designers">
                     <h1 className="sectionheader">designers</h1>
                     <Container fluid>
-                        <Link to="/vintage-by-vo/collection?b=lv">
+                        <Link to="/collection?b=lv">
                             <Image src="./images/lv-icon.jpg"
                                 className="productimg"
                                 rounded
@@ -45,7 +44,7 @@ export default class Designers extends Component {
                         </Link>
                     </Container>
                     <br />
-                    <Nav.Link as={Link} to="/vintage-by-vo/collection?b=lv" className="productname">Louis Vuitton</Nav.Link>
+                    <Nav.Link as={Link} to="/collection?b=lv" className="productname">Louis Vuitton</Nav.Link>
                 </div>
             );
         }
