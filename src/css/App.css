@@ -61,19 +61,24 @@ white
   padding-top: 5vh;
 }
 
-.scriptbrandfont {
-  font-family: "Monday";
-  font-size: 100px;
-  color: #423A39;
-  text-shadow: 1px 1px #F5F0EB;
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
 }
 
-.sectionheader {
-  padding-top: 10vh;
-  font-family: 'monday';
-  font-size: 100px;
-  color: #423A39;
-  text-shadow: 1px 1px #F5F0EB;
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  z-index: 0;
+}
+
+.fade-enter.fade-exit-active {
+  opacity: 1;
+
 }
 
 .navbar {
@@ -85,13 +90,24 @@ white
   max-width: 30vh;
   max-height: 30vh;
 }
+
+.productimg:hover {
+  max-width: 30vh;
+  max-height: 30vh;
+  cursor: pointer;
+}
+
+
 .productname {
-  color:#423A39;
+  color: black;
   font-family: Helvetica;
   font-weight: bold;
 }
-a:hover {
+
+.productname:hover {
   color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .productprice {
@@ -99,6 +115,29 @@ a:hover {
   font-style: italic;
 }
 
-.productwidth{
+.productwidth {
   max-width: 1000px;
+}
+
+.scriptbrandfont {
+  font-family: "Monday";
+  font-size: 100px;
+  color: #423A39;
+  text-shadow: 1px 1px #F5F0EB;
+}
+
+.sectionheader {
+  padding-top: 1vh;
+  font-family: 'monday';
+  font-size: 100px;
+  color: #423A39;
+  text-shadow: 1px 1px #F5F0EB;
+}
+
+.subheader {
+  padding-top: 1vh;
+  font-family: 'monday';
+  font-size: 70px;
+  color: #423A39;
+  text-shadow: 1px 1px #F5F0EB;
 }

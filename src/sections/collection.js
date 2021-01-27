@@ -8,46 +8,58 @@ export default class Collection extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            depop: "Szphia",
+            chunkSize: 3,
+            depop: "Vintagebyvo",
             depopLink: "https://www.depop.com/products/",
-            isLoaded: false,
-            products: []
+            isLoaded: this.props.isLoaded,
+            products: this.props.products,
+            brandSpecified: this.getQueryStringValue('b'),
+            brands: {
+                lv: "Louis Vuitton"
+            }
         }
     }
 
-    async componentDidMount() {
-        // var ashdepop = "https://webapi.depop.com/api/v1/shop/27178787/products/?limit=1000";
-        var proxyurl = "https://cors-anywhere.herokuapp.com/";
-        var depopurl = "https://webapi.depop.com/api/v1/shop/21506652/products/?limit=1000"
-
-        fetch(proxyurl + depopurl)
-            .then(blob => blob.json())
-            .then(data => {
-                function chunker(arr, size) {
-                    var myArray = [];
-                    for (var i = 0; i < arr.length; i += size) {
-                        myArray.push(arr.slice(i, i + size));
-                    }
-                    return myArray;
-                }
-                var chunkedproducts = chunker(data.products, 3);
-                this.setState({
-                    isLoaded: true,
-                    products: chunkedproducts
-                });
-            })
-            .catch(e => {
-                console.log(e);
-                return e;
-            });
+    chunker(arr, size) {
+        var myArray = [];
+        for (var i = 0; i < arr.length; i += size) {
+            myArray.push(arr.slice(i, i + size));
+        }
+        return myArray;
     }
 
-    formatProductTitle(str) {
-        return str.replace(/-/g, " ").replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).replace(this.state.depop + " ", "");
+    formatProductTitle(str, user) {
+        return str.replace(/-/g, " ").replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).replace(user + " ", "");
+    }
+
+    // eslint-disable-next-line
+    formatProductTitle(str, user, brand) {
+        return str.replace(/-/g, " ").replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).replace(user + " ", "").replace(brand, "");
+    }
+
+    getQueryStringValue(key) {
+        // eslint-disable-next-line
+        return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+
+    imageClick(link) {
+        window.open(link);
+    }
+
+    searchBrandName(str, brand) {
+        if (str.includes(brand)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     render() {
-        if (!this.state.isLoaded) {
+        const { chunkSize, isLoaded, products, depopLink, depop, brands, brandSpecified } = this.state;
+        const { chunker, imageClick, formatProductTitle, searchBrandName } = this;
+
+        if (!isLoaded) {// IF NOT LOADED
+
             return (
                 <div id="collection">
                     <h1 className="sectionheader">collection</h1>
@@ -56,28 +68,47 @@ export default class Collection extends Component {
                     </Spinner>
                 </div>
             );
-        } else {
+
+        } else if (isLoaded && brandSpecified !== "") {//IF LOADED WITH SPECIFIED BRAND
+
+            let specificItems = []
+
+            products.forEach((product) => {
+                if (product != null) {
+                    let title = formatProductTitle(product.slug, depop);
+                    if (searchBrandName(title, brands[brandSpecified])) {
+                        specificItems.push(product);
+                        console.log("pushed")
+                    }
+                }
+            });
+
+            var chunkedproducts = chunker(specificItems, chunkSize);
+
             return (
                 <div id="collection">
-                    <h1 className="sectionheader">collection</h1>
+                    <h2 className="sectionheader">{brands[brandSpecified]}</h2>
+                    <h1 className="subheader">collection</h1>
                     <Container fluid>
                         {
-                            this.state.products.map((productChunk) => {
+                            chunkedproducts.map((productChunk) => {
                                 const productsCols = productChunk.map((product) => {
-                                    console.log(product.sold)
                                     if (product.sold === false) {
                                         return (
                                             <Col xs lg="2">
                                                 <Image src={Object.values(product.preview)[5]}
                                                     className="productimg"
-                                                    rounded />
+                                                    rounded
+                                                    onClick={() => imageClick(depopLink + product.slug)}
+                                                />
                                                 <br />
-                                                <a href={this.state.depopLink + product.slug} target="_blank" className="productname">{this.formatProductTitle(product.slug)}</a>
+                                                <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop, brands[brandSpecified])}</a>
                                                 <br />
                                                 <text className="productprice">{"$ " + product.price.price_amount}</text>
                                             </Col>
                                         );
-                                    } else return;
+                                    }
+                                    else return null;
                                 });
                                 return <Row className="justify-content-md-center">{productsCols}</Row>
                             })
@@ -85,6 +116,42 @@ export default class Collection extends Component {
                     </Container>
                 </div>
             );
+
+        } else {//IF LOADED WITH NO SPECIFIED BRAND
+
+            chunkedproducts = chunker(products, chunkSize);
+
+            return (
+                <div id="collection">
+                    <h1 className="sectionheader">collection</h1>
+                    <Container fluid>
+                        {
+                            chunkedproducts.map((productChunk) => {
+                                const productsCols = productChunk.map((product) => {
+                                    if (product.sold === false) {
+                                        return (
+                                            <Col xs lg="2">
+                                                <Image src={Object.values(product.preview)[5]}
+                                                    className="productimg"
+                                                    rounded
+                                                    onClick={() => imageClick(depopLink + product.slug)}
+                                                />
+                                                <br />
+                                                <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop)}</a>
+                                                <br />
+                                                <text className="productprice">{"$ " + product.price.price_amount}</text>
+                                            </Col>
+                                        );
+                                    }
+                                    else return null;
+                                });
+                                return <Row className="justify-content-md-center">{productsCols}</Row>
+                            })
+                        }
+                    </Container>
+                </div>
+            );
+
         }
     }
 }

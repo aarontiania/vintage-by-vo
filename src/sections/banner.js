@@ -1,9 +1,10 @@
 import '../css/App.css';
 import { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Banner extends Component {
+
     render() {
         return (
             <div className="bannerpadding">

@@ -1,6 +1,6 @@
 import '../css/App.css';
 import { Component } from 'react';
-import { scroller } from "react-scroll";
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
@@ -17,22 +17,9 @@ export default class Header extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="m-auto">
 
-                            <Nav.Link onClick={() => scroller.scrollTo('home', {
-                                smooth: true,
-                                offset: -70,
-                                duration: 500,
-                            })}>Home</Nav.Link>
-
-                            <Nav.Link onClick={() => scroller.scrollTo('collection', {
-                                smooth: true,
-                                offset: -70,
-                                duration: 500,
-                            })}>Collection</Nav.Link>
-                            <Nav.Link onClick={() => scroller.scrollTo('sale', {
-                                smooth: true,
-                                offset: -70,
-                                duration: 500,
-                            })}>Sale</Nav.Link>
+                            <Nav.Link as={Link} to="/vintage-by-vo">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/vintage-by-vo/collection">Collection</Nav.Link>
+                            <Nav.Link as={Link} to="/vintage-by-vo/designers">Shop Designer</Nav.Link>
                             <NavDropdown title="About Us" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">About ya girl</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Item Care</NavDropdown.Item>
@@ -50,3 +37,18 @@ export default class Header extends Component {
         );
     }
 }
+// eslint-disable-next-line
+{/* 
+
+NAVBAR + SCROLLER FUNCTIONALITY:
+
+import { scroller } from 'react-scroll';
+
+<Nav.Link onClick={() => scroller.scrollTo('home', {
+    smooth: true,
+    offset: -70,
+    duration: 500,
+})}>Home</Nav.Link> 
+
+
+*/}
