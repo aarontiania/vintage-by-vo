@@ -15,6 +15,7 @@ export default class Collection extends Component {
             products: this.props.products,
             brandSpecified: this.getQueryStringValue('b'),
             brands: {
+                d: "Dior",
                 lv: "Louis Vuitton"
             }
         }
@@ -69,6 +70,15 @@ export default class Collection extends Component {
                 </div>
             );
 
+        } else if (isLoaded && brandSpecified !== "" && products.length === 0) {
+
+            return (
+                <div id="collection">
+                    <br />
+                    <h1>no items for now, check back soon!</h1>
+                </div>
+            );
+
         } else if (isLoaded && brandSpecified !== "") {//IF LOADED WITH SPECIFIED BRAND
 
             let specificItems = []
@@ -92,7 +102,7 @@ export default class Collection extends Component {
                         {
                             chunkedproducts.map((productChunk) => {
                                 const productsCols = productChunk.map((product) => {
-                                    if (product.sold === false && product.status === "ONSALE") {
+                                    if (product.sold === false) {
                                         return (
                                             <Col xs lg="2">
                                                 <Image src={Object.values(product.preview)[5]}
@@ -115,7 +125,13 @@ export default class Collection extends Component {
                     </Container>
                 </div>
             );
-
+        } else if (isLoaded && products.length === 0) {
+            return (
+                <div id="collection">
+                    <br />
+                    <h1 >no items for now, check back soon!</h1>
+                </div>
+            );
         } else {//IF LOADED WITH NO SPECIFIED BRAND
 
             chunkedproducts = chunker(products, chunkSize);
@@ -127,7 +143,7 @@ export default class Collection extends Component {
                         {
                             chunkedproducts.map((productChunk) => {
                                 const productsCols = productChunk.map((product) => {
-                                    if (product.sold === false && product.status === "ONSALE") {
+                                    if (product.sold === false) {
                                         return (
                                             <Col xs lg="2">
                                                 <Image src={Object.values(product.preview)[5]}

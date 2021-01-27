@@ -2,17 +2,55 @@ import '../css/App.css';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Image, Spinner, Nav } from 'react-bootstrap';
+import { Container, Row, Col, Image, Spinner, Nav } from 'react-bootstrap';
 
 export default class Designers extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            chunkSize: 3,
             depop: "Vintagebyvo",
-            isLoaded: this.props.isLoaded,
-            // products: this.props.products
+            isLoaded: false,
+            products: this.props.products,
+            brands: {
+                d: "Dior",
+                lv: "Louis Vuitton"
+            },
+            brandsToPopulate: []
         }
+    }
+
+    async componentDidMount() {
+
+        const { brands, products } = this.state;
+
+        let brandArr = []
+        products.forEach((item) => {
+            brandArr.push(this.formatProductTitle(item.slug))
+        });
+
+        let arr = []
+        Object.values(brands).forEach((brandName) => {
+            if (brandArr.find(a =>a.includes(brandName))) {
+                arr.push(brandName);
+            }
+        });
+
+        arr.sort();
+
+        this.setState({
+            isLoaded: true,
+            brandsToPopulate: arr
+        });
+    }
+
+    chunker(arr, size) {
+        var myArray = [];
+        for (var i = 0; i < arr.length; i += size) {
+            myArray.push(arr.slice(i, i + size));
+        }
+        return myArray;
     }
 
     formatProductTitle(str) {
@@ -20,8 +58,15 @@ export default class Designers extends Component {
         return str.replace(/-/g, " ").replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).replace(depop + " ", "");
     }
 
+    getKeyByValue(object, value) {
+        return Object.keys(object).find(key => object[key] === value);
+    }
+
     render() {
-        const { isLoaded } = this.state;
+
+        const { isLoaded, brands, brandsToPopulate, chunkSize, products } = this.state;
+        const { chunker, getKeyByValue } = this;
+
         if (!isLoaded) {
             return (
                 <div id="designers">
@@ -31,20 +76,52 @@ export default class Designers extends Component {
                     </Spinner>
                 </div>
             );
+        } else if (brandsToPopulate == null && products.length !== 0) {
+            return (
+                <div id="designers">
+                    <h1 className="sectionheader">please check "collection" to see all products</h1>
+                </div>
+            );
+        } else if (products.length === 0) {
+            return (
+                <div id="designers">
+                    <h1 className="sectionheader">no items for now, check back soon!</h1>
+                </div>
+            );
         } else {
+
+            var chunkedproducts = chunker(brandsToPopulate, chunkSize);
+
             return (
                 <div id="designers">
                     <h1 className="sectionheader">designers</h1>
                     <Container fluid>
-                        <Link to="/collection?b=lv">
-                            <Image src="./images/lv-icon.jpg"
-                                className="productimg"
-                                rounded
-                            />
-                        </Link>
+                        {
+                            chunkedproducts.map((productChunk) => {
+                                const productsCols = productChunk.map((product) => {
+                                    if (product !== null) {
+
+                                        let brandTag = getKeyByValue(brands, product);
+
+                                        return (
+                                            <Col xs lg="2">
+                                                <Link to={"/collection?b=" + brandTag}>
+                                                    <Image src={"./images/" + brandTag + "-icon.jpg"}
+                                                        className="productimg"
+                                                        rounded
+                                                    />
+                                                </Link>
+                                                <Nav.Link as={Link} to={"/collection?b=" + brandTag} className="productname">{product}</Nav.Link>
+                                            </Col>
+                                        );
+                                    }
+                                    else return null;
+                                });
+                                return <Row className="justify-content-md-center">{productsCols}</Row>
+                            })
+                        }
                     </Container>
                     <br />
-                    <Nav.Link as={Link} to="/collection?b=lv" className="productname">Louis Vuitton</Nav.Link>
                 </div>
             );
         }
