@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/vintage-by-vo/static/css/main.834153b2.chunk.css",
-    "main.js": "/vintage-by-vo/static/js/main.e7bbe8b8.chunk.js",
-    "main.js.map": "/vintage-by-vo/static/js/main.e7bbe8b8.chunk.js.map",
+    "main.js": "/vintage-by-vo/static/js/main.9a56c535.chunk.js",
+    "main.js.map": "/vintage-by-vo/static/js/main.9a56c535.chunk.js.map",
     "runtime-main.js": "/vintage-by-vo/static/js/runtime-main.6055c12f.js",
     "runtime-main.js.map": "/vintage-by-vo/static/js/runtime-main.6055c12f.js.map",
     "static/css/2.ae9f1eb3.chunk.css": "/vintage-by-vo/static/css/2.ae9f1eb3.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.ae9f1eb3.chunk.css",
     "static/js/2.8249967c.chunk.js",
     "static/css/main.834153b2.chunk.css",
-    "static/js/main.e7bbe8b8.chunk.js"
+    "static/js/main.9a56c535.chunk.js"
   ]
 }
