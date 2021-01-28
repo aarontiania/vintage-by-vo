@@ -104,12 +104,6 @@ export default class Content extends Component {
                             </CSSTransition>
                         </TransitionGroup>
                     )} />
-                    {/* {/* {console.log(window.location.hash)} */}
-                    {/* {console.log("/vintage-by-vo/#" + window.location.href.split('/#')[1])} */}
-                    {/* {console.log("/vintage-by-vo/" + window.location.hash)} */}
-                    {/* <Redirect to={"/vintage-by-vo/" + window.location.hash} /> */}
-                    {/* <Redirect to={"/vintage-by-vo/#"} /> */}
-
                 </div >
             );
         }

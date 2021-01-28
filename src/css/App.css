@@ -25,7 +25,7 @@ white
 }
 
 .App {
-  font-family: Helvetica;
+  font-family: Helvetica, sans-serif;
   text-align: center;
   background-color: white;
 }
@@ -40,6 +40,13 @@ white
   src: local("Monday Routines"),
     local("Monday_Routines"),
     url(./fonts/Monday_Routines.woff) format("woff");
+}
+
+@font-face {
+  font-family: Waltograph;
+  src: local("Waltograph"),
+    local("Waltograph"),
+    url(./fonts/Waltograph.woff) format("woff");
 }
 
 .App-header {
@@ -74,7 +81,7 @@ white
 }
 
 .carousel {
-  max-height: 60vh;
+  max-height: 60%;
   min-height: 200px;
   width: 100%;
 }
@@ -123,7 +130,10 @@ white
 
 .fade-enter.fade-exit-active {
   opacity: 1;
+}
 
+.no-overflow {
+  overflow: hidden;
 }
 
 .navbar {

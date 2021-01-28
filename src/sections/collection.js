@@ -87,40 +87,38 @@ export default class Collection extends Component {
             var countdown = chunkSize;
 
             return (
-                <>
+                <div id="collection" className="no-overflow">
                     <div className="sectionspacer-half" />
-                    <div id="collection">
-                        <h1 className="sectionheader">collection</h1>
-                        {
-                            chunkedproducts.map((productChunk) => {
-                                const productsCols = productChunk.map((product) => {
-                                    if (product.sold === false && countdown !== 0) {
-                                        countdown--;
-                                        return (
-                                            <Col xs lg="2">
-                                                <Image src={Object.values(product.preview)[5]}
-                                                    className="productimg"
-                                                    rounded
-                                                    onClick={() => imageClick(depopLink + product.slug)}
-                                                />
-                                                <br />
-                                                <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop, brands[brandSpecified])}</a>
-                                                <br />
-                                                <text className="productprice">{"$ " + product.price.price_amount}</text>
-                                            </Col>
-                                        );
-                                    }
-                                    else return null;
-                                });
-                                return <Row className="justify-content-md-center">{productsCols}</Row>
-                            })
-                        }
+                    <h1 className="sectionheader">collection</h1>
+                    {
+                        chunkedproducts.map((productChunk) => {
+                            const productsCols = productChunk.map((product) => {
+                                if (product.sold === false && countdown !== 0) {
+                                    countdown--;
+                                    return (
+                                        <Col xs lg="2">
+                                            <Image src={Object.values(product.preview)[5]}
+                                                className="productimg"
+                                                rounded
+                                                onClick={() => imageClick(depopLink + product.slug)}
+                                            />
+                                            <br />
+                                            <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop, brands[brandSpecified])}</a>
+                                            <br />
+                                            <text className="productprice">{"$ " + product.price.price_amount}</text>
+                                        </Col>
+                                    );
+                                }
+                                else return null;
+                            });
+                            return <Row className="justify-content-md-center">{productsCols}</Row>
+                        })
+                    }
 
-                        <Link to="/collection">
-                            <Button bsPrefix="custom-btn" variant="viewmore">View more</Button>
-                        </Link>
-                    </div>
-                </>
+                    <Link to="/collection">
+                        <Button bsPrefix="custom-btn" variant="viewmore">View more</Button>
+                    </Link>
+                </div>
             );
         } else if (isLoaded && brandSpecified !== "") {//IF LOADED WITH SPECIFIED BRAND
 
@@ -139,8 +137,8 @@ export default class Collection extends Component {
 
             return (
                 <div id="collection">
-                    <h2 className="sectionheader">{brands[brandSpecified]}</h2>
-                    <h1 className="subheader">collection</h1>
+                    <h1 className="sectionheader">{brands[brandSpecified]}</h1>
+                    <h2 className="subheader">collection</h2>
                     <Container fluid>
                         {
                             chunkedproducts.map((productChunk) => {
