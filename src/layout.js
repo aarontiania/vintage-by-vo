@@ -1,6 +1,6 @@
 import Content from './content';
 import { Component } from 'react';
-// import Footer from './sections/footer';
+import Footer from './sections/footer';
 import Header from './sections/header-nav';
 
 export default class Layout extends Component {
@@ -9,7 +9,7 @@ export default class Layout extends Component {
             <>
                 <Header />
                 <Content />
-                {/* <Footer /> */}
+                <Footer />
             </>
         );
     }

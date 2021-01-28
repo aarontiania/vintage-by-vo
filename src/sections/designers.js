@@ -2,7 +2,7 @@ import '../css/App.css';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Image, Spinner, Nav } from 'react-bootstrap';
+import { Container, Row, Col, Image, Spinner, Nav, Button } from 'react-bootstrap';
 
 export default class Designers extends Component {
 
@@ -12,6 +12,7 @@ export default class Designers extends Component {
             chunkSize: 3,
             depop: "Vintagebyvo",
             isLoaded: false,
+            homepage: this.props.homepage,
             products: this.props.products,
             brands: {
                 d: "Dior",
@@ -32,7 +33,7 @@ export default class Designers extends Component {
 
         let arr = []
         Object.values(brands).forEach((brandName) => {
-            if (brandArr.find(a =>a.includes(brandName))) {
+            if (brandArr.find(a => a.includes(brandName))) {
                 arr.push(brandName);
             }
         });
@@ -64,7 +65,7 @@ export default class Designers extends Component {
 
     render() {
 
-        const { isLoaded, brands, brandsToPopulate, chunkSize, products } = this.state;
+        const { isLoaded, brands, brandsToPopulate, chunkSize, products, homepage } = this.state;
         const { chunker, getKeyByValue } = this;
 
         if (!isLoaded) {
@@ -89,9 +90,49 @@ export default class Designers extends Component {
                     <h1 className="sectionheader">no items for now, check back soon!</h1>
                 </div>
             );
-        } else {
+        } else if (homepage) {
 
             var chunkedproducts = chunker(brandsToPopulate, chunkSize);
+            var countdown = chunkSize;
+
+            return (
+                <div id="designers">
+                    <h1 className="sectionheader">designers</h1>
+                    <Container fluid>
+                        {
+                            chunkedproducts.map((productChunk) => {
+                                const productsCols = productChunk.map((product) => {
+
+                                    if (product !== null && countdown !== 0) {
+                                        let brandTag = getKeyByValue(brands, product);
+                                        return (
+                                            <Col xs lg="2">
+                                                <Link to={"/collection?b=" + brandTag}>
+                                                    <Image src={"./images/" + brandTag + "-icon.jpg"}
+                                                        className="productimg"
+                                                        rounded
+                                                    />
+                                                </Link>
+                                                <Nav.Link as={Link} to={"/collection?b=" + brandTag} className="productname">{product}</Nav.Link>
+                                            </Col>
+                                        );
+                                    }
+                                    else return null;
+                                });
+                                return <Row className="justify-content-md-center">{productsCols}</Row>
+                            })
+                        }
+
+                        <Link to="/collection">
+                            <Button bsPrefix="custom-btn" variant="viewmore">View more</Button>
+                        </Link>
+                    </Container>
+                    <br />
+                </div>
+            );
+        } else {
+
+            chunkedproducts = chunker(brandsToPopulate, chunkSize);
 
             return (
                 <div id="designers">

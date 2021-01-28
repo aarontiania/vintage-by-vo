@@ -1,7 +1,8 @@
 import '../css/App.css';
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Image, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Image, Row, Col, Spinner, Button } from 'react-bootstrap';
 
 export default class Collection extends Component {
 
@@ -12,6 +13,7 @@ export default class Collection extends Component {
             depop: "Vintagebyvo",
             depopLink: "https://www.depop.com/products/",
             isLoaded: this.props.isLoaded,
+            homepage: this.props.homepage,
             products: this.props.products,
             brandSpecified: this.getQueryStringValue('b'),
             brands: {
@@ -56,7 +58,7 @@ export default class Collection extends Component {
     }
 
     render() {
-        const { chunkSize, isLoaded, products, depopLink, depop, brands, brandSpecified } = this.state;
+        const { chunkSize, isLoaded, products, depopLink, depop, brands, brandSpecified, homepage } = this.state;
         const { chunker, imageClick, formatProductTitle, searchBrandName } = this;
 
         if (!isLoaded) {// IF NOT LOADED
@@ -79,6 +81,47 @@ export default class Collection extends Component {
                 </div>
             );
 
+        } else if (isLoaded && homepage) {
+
+            var chunkedproducts = chunker(products, chunkSize);
+            var countdown = chunkSize;
+
+            return (
+                <>
+                    <div className="sectionspacer-half" />
+                    <div id="collection">
+                        <h1 className="sectionheader">collection</h1>
+                        {
+                            chunkedproducts.map((productChunk) => {
+                                const productsCols = productChunk.map((product) => {
+                                    if (product.sold === false && countdown !== 0) {
+                                        countdown--;
+                                        return (
+                                            <Col xs lg="2">
+                                                <Image src={Object.values(product.preview)[5]}
+                                                    className="productimg"
+                                                    rounded
+                                                    onClick={() => imageClick(depopLink + product.slug)}
+                                                />
+                                                <br />
+                                                <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop, brands[brandSpecified])}</a>
+                                                <br />
+                                                <text className="productprice">{"$ " + product.price.price_amount}</text>
+                                            </Col>
+                                        );
+                                    }
+                                    else return null;
+                                });
+                                return <Row className="justify-content-md-center">{productsCols}</Row>
+                            })
+                        }
+
+                        <Link to="/collection">
+                            <Button bsPrefix="custom-btn" variant="viewmore">View more</Button>
+                        </Link>
+                    </div>
+                </>
+            );
         } else if (isLoaded && brandSpecified !== "") {//IF LOADED WITH SPECIFIED BRAND
 
             let specificItems = []
@@ -92,7 +135,7 @@ export default class Collection extends Component {
                 }
             });
 
-            var chunkedproducts = chunker(specificItems, chunkSize);
+            chunkedproducts = chunker(specificItems, chunkSize);
 
             return (
                 <div id="collection">
