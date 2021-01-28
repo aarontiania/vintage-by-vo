@@ -30,8 +30,8 @@ export default class Content extends Component {
             .then(data => {
 
                 let availableProducts = []
-                data.products.forEach((item)=> {
-                    if(item.sold === false && item.status === "ONSALE"){
+                data.products.forEach((item) => {
+                    if (item.sold === false && item.status === "ONSALE") {
                         console.log(item)
                         availableProducts.push(item);
                     }
@@ -46,6 +46,10 @@ export default class Content extends Component {
                 console.log(e);
                 return e;
             });
+
+        // this.setState({
+        //     isLoaded:true
+        // });
     }
 
     render() {

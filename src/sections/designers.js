@@ -85,6 +85,7 @@ export default class Designers extends Component {
         } else if (products.length === 0) {
             return (
                 <div id="designers">
+                    <div className="sectionspacer" />
                     <h1 className="sectionheader">no items for now, check back soon!</h1>
                 </div>
             );

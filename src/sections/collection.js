@@ -128,8 +128,8 @@ export default class Collection extends Component {
         } else if (isLoaded && products.length === 0) {
             return (
                 <div id="collection">
-                    <br />
-                    <h1 >no items for now, check back soon!</h1>
+                    <div className="sectionspacer" />
+                    <h1 className="sectionheader">no items for now, check back soon!</h1>
                 </div>
             );
         } else {//IF LOADED WITH NO SPECIFIED BRAND
