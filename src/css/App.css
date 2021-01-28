@@ -74,7 +74,7 @@ white
   border: none;
   border-radius: 8px;
   color: white;
-  margin-top: 25px;
+  /* margin-top: 25px; */
   padding: 20px;
   text-align: center;
   text-decoration: none;
@@ -97,6 +97,10 @@ white
 
 .carousel-caption {
   top: 45%
+}
+
+.column {
+  padding-bottom: 3%;
 }
 
 .footer {
@@ -180,6 +184,27 @@ white
 
 .productwidth {
   max-width: 1000px;
+}
+
+.row {
+  padding: 0;
+}
+
+.sidemenu-name {
+  justify-content: center;
+  opacity: 1;
+  color: white;
+  font-family: Helvetica;
+  /* font-weight: bold; */
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.sidemenu-name:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.3;
 }
 
 .scriptbrandfont {

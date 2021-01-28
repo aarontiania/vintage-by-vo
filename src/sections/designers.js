@@ -96,7 +96,8 @@ export default class Designers extends Component {
             var countdown = chunkSize;
 
             return (
-                <div id="designers">
+                <div id="designers" className="no-overflow">
+                    <div className="sectionspacer-half" />
                     <h1 className="sectionheader">designers</h1>
                     <Container fluid>
                         {
@@ -106,7 +107,7 @@ export default class Designers extends Component {
                                     if (product !== null && countdown !== 0) {
                                         let brandTag = getKeyByValue(brands, product);
                                         return (
-                                            <Col xs lg="2">
+                                            <Col xs lg="2" className="column">
                                                 <Link to={"/collection?b=" + brandTag}>
                                                     <Image src={"./images/" + brandTag + "-icon.jpg"}
                                                         className="productimg"
@@ -146,7 +147,7 @@ export default class Designers extends Component {
                                         let brandTag = getKeyByValue(brands, product);
 
                                         return (
-                                            <Col xs lg="2">
+                                            <Col xs lg="2" className="column">
                                                 <Link to={"/collection?b=" + brandTag}>
                                                     <Image src={"./images/" + brandTag + "-icon.jpg"}
                                                         className="productimg"

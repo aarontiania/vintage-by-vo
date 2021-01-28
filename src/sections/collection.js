@@ -1,4 +1,5 @@
 import '../css/App.css';
+// import SideMenu from './sidemenu';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -80,44 +81,11 @@ export default class Collection extends Component {
                     <h1>no items for now, check back soon!</h1>
                 </div>
             );
-
-        } else if (isLoaded && homepage) {
-
-            var chunkedproducts = chunker(products, chunkSize);
-            var countdown = chunkSize;
-
+        } else if (isLoaded && products.length === 0) {
             return (
-                <div id="collection" className="no-overflow">
-                    <div className="sectionspacer-half" />
-                    <h1 className="sectionheader">collection</h1>
-                    {
-                        chunkedproducts.map((productChunk) => {
-                            const productsCols = productChunk.map((product) => {
-                                if (product.sold === false && countdown !== 0) {
-                                    countdown--;
-                                    return (
-                                        <Col xs lg="2">
-                                            <Image src={Object.values(product.preview)[5]}
-                                                className="productimg"
-                                                rounded
-                                                onClick={() => imageClick(depopLink + product.slug)}
-                                            />
-                                            <br />
-                                            <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop, brands[brandSpecified])}</a>
-                                            <br />
-                                            <text className="productprice">{"$ " + product.price.price_amount}</text>
-                                        </Col>
-                                    );
-                                }
-                                else return null;
-                            });
-                            return <Row className="justify-content-md-center">{productsCols}</Row>
-                        })
-                    }
-
-                    <Link to="/collection">
-                        <Button bsPrefix="custom-btn" variant="viewmore">View more</Button>
-                    </Link>
+                <div id="collection">
+                    <div className="sectionspacer" />
+                    <h1 className="sectionheader">no items for now, check back soon!</h1>
                 </div>
             );
         } else if (isLoaded && brandSpecified !== "") {//IF LOADED WITH SPECIFIED BRAND
@@ -133,7 +101,7 @@ export default class Collection extends Component {
                 }
             });
 
-            chunkedproducts = chunker(specificItems, chunkSize);
+            var chunkedproducts = chunker(specificItems, chunkSize);
 
             return (
                 <div id="collection">
@@ -145,7 +113,7 @@ export default class Collection extends Component {
                                 const productsCols = productChunk.map((product) => {
                                     if (product.sold === false) {
                                         return (
-                                            <Col xs lg="2">
+                                            <Col xs lg="2" className="column">
                                                 <Image src={Object.values(product.preview)[5]}
                                                     className="productimg"
                                                     rounded
@@ -166,11 +134,43 @@ export default class Collection extends Component {
                     </Container>
                 </div>
             );
-        } else if (isLoaded && products.length === 0) {
+        } else if (isLoaded && homepage) {
+
+            chunkedproducts = chunker(products, chunkSize);
+            var countdown = chunkSize;
+
             return (
-                <div id="collection">
-                    <div className="sectionspacer" />
-                    <h1 className="sectionheader">no items for now, check back soon!</h1>
+                <div id="collection" className="no-overflow">
+                    <div className="sectionspacer-half" />
+                    <h1 className="sectionheader">collection</h1>
+                    {
+                        chunkedproducts.map((productChunk) => {
+                            const productsCols = productChunk.map((product) => {
+                                if (product.sold === false && countdown !== 0) {
+                                    countdown--;
+                                    return (
+                                        <Col xs lg="2" className="column">
+                                            <Image src={Object.values(product.preview)[5]}
+                                                className="productimg"
+                                                rounded
+                                                onClick={() => imageClick(depopLink + product.slug)}
+                                            />
+                                            <br />
+                                            <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop, brands[brandSpecified])}</a>
+                                            <br />
+                                            <text className="productprice">{"$ " + product.price.price_amount}</text>
+                                        </Col>
+                                    );
+                                }
+                                else return null;
+                            });
+                            return <Row className="justify-content-md-center row">{productsCols}</Row>
+                        })
+                    }
+
+                    <Link to="/collection">
+                        <Button bsPrefix="custom-btn" variant="viewmore">View more</Button>
+                    </Link>
                 </div>
             );
         } else {//IF LOADED WITH NO SPECIFIED BRAND
@@ -178,34 +178,37 @@ export default class Collection extends Component {
             chunkedproducts = chunker(products, chunkSize);
 
             return (
-                <div id="collection">
-                    <h1 className="sectionheader">collection</h1>
-                    <Container fluid>
-                        {
-                            chunkedproducts.map((productChunk) => {
-                                const productsCols = productChunk.map((product) => {
-                                    if (product.sold === false) {
-                                        return (
-                                            <Col xs lg="2">
-                                                <Image src={Object.values(product.preview)[5]}
-                                                    className="productimg"
-                                                    rounded
-                                                    onClick={() => imageClick(depopLink + product.slug)}
-                                                />
-                                                <br />
-                                                <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop)}</a>
-                                                <br />
-                                                <text className="productprice">{"$ " + product.price.price_amount}</text>
-                                            </Col>
-                                        );
-                                    }
-                                    else return null;
-                                });
-                                return <Row className="justify-content-md-center">{productsCols}</Row>
-                            })
-                        }
-                    </Container>
-                </div>
+                <>
+                    {/* <SideMenu /> */}
+                    <div id="collection">
+                        <h1 className="sectionheader">collection</h1>
+                        <Container fluid>
+                            {
+                                chunkedproducts.map((productChunk) => {
+                                    const productsCols = productChunk.map((product) => {
+                                        if (product.sold === false) {
+                                            return (
+                                                <Col xs lg="2" className="column">
+                                                    <Image src={Object.values(product.preview)[5]}
+                                                        className="productimg"
+                                                        rounded
+                                                        onClick={() => imageClick(depopLink + product.slug)}
+                                                    />
+                                                    <br />
+                                                    <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop)}</a>
+                                                    <br />
+                                                    <text className="productprice">{"$ " + product.price.price_amount}</text>
+                                                </Col>
+                                            );
+                                        }
+                                        else return null;
+                                    });
+                                    return <Row className="justify-content-md-center">{productsCols}</Row>
+                                })
+                            }
+                        </Container>
+                    </div>
+                </>
             );
 
         }
