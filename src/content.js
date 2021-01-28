@@ -25,7 +25,7 @@ export default class Content extends Component {
         var proxyurl = "https://cors-anywhere.herokuapp.com/";
         var depopurl = ashdepop;
 
-        var testingenv = true; // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
+        var testingenv = false; // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
 
         if (!testingenv) {
             fetch(proxyurl + depopurl)
