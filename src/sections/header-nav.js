@@ -16,7 +16,6 @@ export default class Header extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="m-auto">
-                            
                             <Nav.Link as={Link} to="/vintage-by-vo/#">Home</Nav.Link>
                             <Nav.Link as={Link} to="/vintage-by-vo/#/collection">Collection</Nav.Link>
                             <Nav.Link as={Link} to="/vintage-by-vo/#/designers">Shop Designer</Nav.Link>
@@ -28,7 +27,6 @@ export default class Header extends Component {
                                 <NavDropdown.Item href="#action/3.4">My bunny</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="#link">Contact</Nav.Link>
-
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
@@ -38,7 +36,7 @@ export default class Header extends Component {
     }
 }
 // eslint-disable-next-line
-/* 
+/*
 
 NAVBAR + SCROLLER FUNCTIONALITY:
 
@@ -48,7 +46,7 @@ import { scroller } from 'react-scroll';
     smooth: true,
     offset: -70,
     duration: 500,
-})}>Home</Nav.Link> 
+})}>Home</Nav.Link>
 
 
 */

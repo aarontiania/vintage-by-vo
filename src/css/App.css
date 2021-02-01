@@ -25,7 +25,7 @@ white
 }
 
 .App {
-  font-family: Helvetica;
+  font-family: Helvetica, sans-serif;
   text-align: center;
   background-color: white;
 }
@@ -40,6 +40,13 @@ white
   src: local("Monday Routines"),
     local("Monday_Routines"),
     url(./fonts/Monday_Routines.woff) format("woff");
+}
+
+@font-face {
+  font-family: Waltograph;
+  src: local("Waltograph"),
+    local("Waltograph"),
+    url(./fonts/Waltograph.woff) format("woff");
 }
 
 .App-header {
@@ -61,6 +68,55 @@ white
   padding-top: 5vh;
 }
 
+.custom-btn-viewmore {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #A38668;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  /* margin-top: 25px; */
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.carousel {
+  max-height: 60%;
+  min-height: 200px;
+  width: 100%;
+}
+
+
+.carousel-img {
+  max-height: 60vh;
+  min-height: 200px;
+  height: 100vh;
+  object-fit: cover;
+}
+
+
+.carousel-caption {
+  top: 45%
+}
+
+.column {
+  padding-bottom: 3%;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  min-height: 100%
+}
+
+.footer-createdby {
+  width: 100%;
+  max-height: 10%;
+  align-self: 'stretch';
+  text-align: right;
+}
+
 .fade-enter {
   opacity: 0;
   z-index: 1;
@@ -78,7 +134,10 @@ white
 
 .fade-enter.fade-exit-active {
   opacity: 1;
+}
 
+.no-overflow {
+  overflow: hidden;
 }
 
 .navbar {
@@ -87,27 +146,35 @@ white
 }
 
 .productimg {
+  opacity: 1;
   max-width: 30vh;
   max-height: 30vh;
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
 
 .productimg:hover {
   max-width: 30vh;
   max-height: 30vh;
   cursor: pointer;
+  opacity: 0.3;
 }
 
 
 .productname {
+  opacity: 1;
   color: black;
   font-family: Helvetica;
   font-weight: bold;
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
 
 .productname:hover {
   color: black;
   text-decoration: none;
   cursor: pointer;
+  opacity: 0.3;
 }
 
 .productprice {
@@ -117,6 +184,27 @@ white
 
 .productwidth {
   max-width: 1000px;
+}
+
+.row {
+  padding: 0;
+}
+
+.sidemenu-name {
+  justify-content: center;
+  opacity: 1;
+  color: white;
+  font-family: Helvetica;
+  /* font-weight: bold; */
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.sidemenu-name:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.3;
 }
 
 .scriptbrandfont {
@@ -134,10 +222,22 @@ white
   text-shadow: 1px 1px #F5F0EB;
 }
 
+.sectionspacer {
+  padding: 8vh;
+}
+
+.sectionspacer-half {
+  padding: 4vh;
+}
+
 .subheader {
   padding-top: 1vh;
   font-family: 'monday';
   font-size: 70px;
   color: #423A39;
   text-shadow: 1px 1px #F5F0EB;
+}
+
+.tinted {
+  filter: brightness(75%);
 }

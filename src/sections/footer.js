@@ -5,13 +5,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default class Footer extends Component {
     render() {
         return (
-            <hr
-                style={{
-                    color: '#C7B49F',
-                    backgroundColor: 'inherit',
-                    height: 20
-                }}
-            />
+            <div className="footer">
+                <div className="sectionspacer-half" />
+                <hr
+                    style={{
+                        color: '#C7B49F',
+                        backgroundColor: 'inherit'
+                    }}
+                />
+
+                <div className="sectionspacer-half" />
+
+            </div>
         );
     }
 }
