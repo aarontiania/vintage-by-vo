@@ -15,7 +15,8 @@ export default class Content extends Component {
         super(props);
         this.state = {
             isLoaded: false,
-            products: []
+            products: [],
+            testingenv: true // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
         }
     }
 
@@ -25,9 +26,7 @@ export default class Content extends Component {
         var proxyurl = "https://cors-anywhere.herokuapp.com/";
         var depopurl = ashdepop;
 
-        var testingenv = true; // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
-
-        if (!testingenv) {
+        if (!this.state.testingenv) {
             fetch(proxyurl + depopurl)
                 .then(blob => blob.json())
                 .then(data => {
@@ -196,7 +195,7 @@ export default class Content extends Component {
     }
 
     render() {
-        const { products, isLoaded } = this.state;
+        const { products, isLoaded, testingenv } = this.state;
         if (!isLoaded) {
             return (
                 <div id="collection">
@@ -222,10 +221,10 @@ export default class Content extends Component {
                                 <HashRouter>
                                     <Switch>
                                         <Route exact path='/' render={() => {
-                                            return (<Home products={products} isLoaded={isLoaded} />)
+                                            return (<Home products={products} isLoaded={isLoaded} testingenv={testingenv} />)
                                         }} />
                                         <Route exact path='/#/' render={() => {
-                                            return (<Home products={products} isLoaded={isLoaded} />)
+                                            return (<Home products={products} isLoaded={isLoaded} testingenv={testingenv} />)
                                         }} />
                                         <Route exact path='/collection' render={() => {
                                             return (<Collection products={products} isLoaded={isLoaded} />)
