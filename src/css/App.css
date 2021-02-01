@@ -150,6 +150,16 @@ white
   opacity: 1;
 }
 
+.generalimg {
+  width: 100%;
+}
+
+.generalpage {
+  justify-content: center;
+  align-items: center;
+  /* width: 75%; */
+}
+
 .no-overflow {
   overflow: hidden;
 }

@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 export default class Header extends Component {
+
     render() {
         return (
             <>
@@ -20,13 +21,13 @@ export default class Header extends Component {
                             <Nav.Link as={Link} to="/vintage-by-vo/#/collection">Collection</Nav.Link>
                             <Nav.Link as={Link} to="/vintage-by-vo/#/designers">Shop Designer</Nav.Link>
                             <NavDropdown title="About Us" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">About ya girl</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Item Care</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                <NavDropdown.Item href="/vintage-by-vo/#/about">About Us</NavDropdown.Item>
+                                <NavDropdown.Item href="/vintage-by-vo/#/care">Item Care</NavDropdown.Item>
+                                <NavDropdown.Item href="/vintage-by-vo/#/shipping">Shipping</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">My bunny</NavDropdown.Item>
+                                <NavDropdown.Item href="https://www.instagram.com/uniandkoa/" target="_blank" rel="noreferrer">My Bunnies</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="#link">Contact</Nav.Link>
+                            <Nav.Link href="/vintage-by-vo/#/contact">Contact</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

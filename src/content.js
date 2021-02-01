@@ -1,8 +1,13 @@
 import './css/App.css';
+import Faq from './sections/faq';
 import { Component } from 'react';
+import Care from './sections/care';
+import About from './sections/about';
 import Home from './sections/home';
+import Banner from './sections/banner';
+import Contact from './sections/contact';
 import { Spinner } from 'react-bootstrap';
-import Banner from './sections/banner'
+import Shipping from './sections/shipping';
 import Designers from './sections/designers';
 import Collection from './sections/collection';
 import { Switch, Route, HashRouter } from 'react-router-dom';
@@ -22,7 +27,6 @@ export default class Content extends Component {
 
     async componentDidMount() {
         var ashdepop = "https://webapi.depop.com/api/v1/shop/27178787/products/?limit=1000";
-        //var testdepop = "https://webapi.depop.com/api/v1/shop/21506652/products/?limit=1000";
         var proxyurl = "https://cors-anywhere.herokuapp.com/";
         var depopurl = ashdepop;
 
@@ -231,6 +235,21 @@ export default class Content extends Component {
                                         }} />
                                         <Route exact path='/designers' render={() => {
                                             return (<Designers products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route exact path='/about' render={() => {
+                                            return (<About products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route exact path='/care' render={() => {
+                                            return (<Care products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route exact path='/shipping' render={() => {
+                                            return (<Shipping products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route exact path='/faq' render={() => {
+                                            return (<Faq products={products} isLoaded={isLoaded} />)
+                                        }} />
+                                        <Route exact path='/contact' render={() => {
+                                            return (<Contact products={products} isLoaded={isLoaded} />)
                                         }} />
                                         <Route render={() => {
                                             return (
