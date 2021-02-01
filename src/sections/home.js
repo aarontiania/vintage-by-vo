@@ -9,8 +9,11 @@ export default class Home extends Component {
         return (
             <>
                 <Banner carousel />
+                <Banner subbanner={1} />
                 <Collection homepage products={this.props.products} isLoaded={this.props.isLoaded} />
+                <Banner subbanner={2} />
                 <Designers homepage products={this.props.products} isLoaded={this.props.isLoaded} />
+                <Banner subbanner={3} />
             </>
         );
     }

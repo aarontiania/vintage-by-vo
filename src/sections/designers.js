@@ -111,7 +111,7 @@ export default class Designers extends Component {
                                                 <Link to={"/collection?b=" + brandTag}>
                                                     <Image src={"./images/" + brandTag + "-icon.jpg"}
                                                         className="productimg"
-                                                        rounded
+                                                        roundedCircle
                                                     />
                                                 </Link>
                                                 <Nav.Link as={Link} to={"/collection?b=" + brandTag} className="productname">{product}</Nav.Link>

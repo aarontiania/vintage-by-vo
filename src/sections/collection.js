@@ -10,7 +10,7 @@ export default class Collection extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            chunkSize: 3,
+            chunkSize: 4,
             depop: "Vintagebyvo",
             depopLink: "https://www.depop.com/products/",
             isLoaded: this.props.isLoaded,
