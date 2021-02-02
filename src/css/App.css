@@ -117,6 +117,20 @@ white
   text-align: right;
 }
 
+.footerbanner {
+  max-height: 60%;
+  min-height: 200px;
+  width: 100%;
+}
+
+
+.footerbanner-img {
+  max-height: 60vh;
+  min-height: 200px;
+  height: 100vh;
+  object-fit: cover;
+}
+
 .fade-enter {
   opacity: 0;
   z-index: 1;
@@ -134,6 +148,21 @@ white
 
 .fade-enter.fade-exit-active {
   opacity: 1;
+}
+
+.generalcolumn {
+  /* display: flex; */
+  align-items: center;
+}
+
+.generalimg {
+  width: 100%;
+}
+
+.generalpage {
+  justify-content: center;
+  align-items: center;
+  /* width: 75%; */
 }
 
 .no-overflow {
@@ -229,6 +258,22 @@ white
 .sectionspacer-half {
   padding: 4vh;
 }
+
+.subbanner {
+  max-height: 45%;
+  min-height: 200px;
+  width: 100%;
+}
+
+
+.subbanner-img {
+  max-height: 45vh;
+  min-height: 200px;
+  height: 100vh;
+  object-fit: cover;
+}
+
+
 
 .subheader {
   padding-top: 1vh;
