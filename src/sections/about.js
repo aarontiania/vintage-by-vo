@@ -19,16 +19,18 @@ export default class About extends Component {
                     <Container fluid>
                         <h1 className="sectionheader">about</h1>
                         <div className="sectionspacer-half" />
-                        <Row>
+                        <Row className="align-items-center">
                             <Col xs lg="4">
                                 <Image src="https://i.pinimg.com/originals/ff/f8/e5/fff8e5739d6deae8b834a920f35c7d4b.jpg"
                                     className="generalimg"
                                 />
                             </Col>
-                            <Col>
-                                <h2>{header}</h2>
-                                <div className="sectionspacer-half" />
-                                <p>{description}</p>
+                            <Col >
+                                <div className="generalcolumn">
+                                    <h2>{header}</h2>
+                                    <div className="sectionspacer-half" />
+                                    <p>{description}</p>
+                                </div>
                             </Col>
                         </Row>
                     </Container>

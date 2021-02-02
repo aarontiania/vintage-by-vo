@@ -150,6 +150,11 @@ white
   opacity: 1;
 }
 
+.generalcolumn {
+  /* display: flex; */
+  align-items: center;
+}
+
 .generalimg {
   width: 100%;
 }

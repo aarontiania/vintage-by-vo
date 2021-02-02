@@ -19,7 +19,7 @@ export default class Shipping extends Component {
                     <Container fluid>
                         <h1 className="sectionheader">shipping</h1>
                         <div className="sectionspacer-half" />
-                        <Row>
+                        <Row className="align-items-center">
                             <Col>
                                 <h2>{header}</h2>
                                 <div className="sectionspacer-half" />
