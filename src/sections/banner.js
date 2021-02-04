@@ -51,7 +51,7 @@ export default class Banner extends Component {
                         <Carousel.Item>
                             <img
                                 className="d-block tinted carousel-img"
-                                src="./images/banner.jpg"
+                                src='./images/banner.jpg'
                                 alt="First slide"
                                 style={{ alignSelf: 'center' }}
                             />

@@ -4,9 +4,6 @@ import { Breadcrumb } from 'react-bootstrap';
 
 export default class TestingIndicator extends Component {
     render() {
-
-        console.log(this.props.testingenv);
-
         if (this.props.testingenv) {
             return (
                 <Breadcrumb>
