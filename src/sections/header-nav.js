@@ -28,6 +28,7 @@ export default class Header extends Component {
                                 <NavDropdown.Item href="https://www.instagram.com/uniandkoa/" target="_blank" rel="noreferrer">My Bunnies</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="/vintage-by-vo/#/contact">Contact</Nav.Link>
+                            <Nav.Link as={Link} to="/vintage-by-vo/#/testing">Test Page</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

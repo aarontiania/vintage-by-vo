@@ -2,8 +2,8 @@ import './css/App.css';
 import Faq from './sections/faq';
 import { Component } from 'react';
 import Care from './sections/care';
-import About from './sections/about';
 import Home from './sections/home';
+import About from './sections/about';
 import Banner from './sections/banner';
 import Contact from './sections/contact';
 import { Spinner } from 'react-bootstrap';
@@ -13,6 +13,7 @@ import Collection from './sections/collection';
 import { Switch, Route, HashRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
+import Test from './sections/test';
 
 export default class Content extends Component {
 
@@ -21,7 +22,7 @@ export default class Content extends Component {
         this.state = {
             isLoaded: false,
             products: [],
-            testingenv: true // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
+            testingenv: false // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
         }
     }
 
@@ -251,6 +252,11 @@ export default class Content extends Component {
                                         <Route exact path='/contact' render={() => {
                                             return (<Contact products={products} isLoaded={isLoaded} />)
                                         }} />
+
+                                        <Route exact path='/testing' render={() => {
+                                            return (<Test />)
+                                        }} />
+
                                         <Route render={() => {
                                             return (
                                                 <div>
