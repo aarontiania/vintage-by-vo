@@ -11,6 +11,7 @@ export default class Home extends Component {
         return (
             <>
                 <TestingIndicator testingenv={this.props.testingenv} />
+                <h1>Heroku test</h1>
                 <Banner carousel />
                 <Banner subbanner={1} />
                 <Collection homepage products={this.props.products} isLoaded={this.props.isLoaded} />
