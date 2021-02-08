@@ -102,7 +102,7 @@ export default class Banner extends Component {
                                     <img
                                         className="d-block tinted footerbanner-img"
                                         src={"./images/subbanner" + footerbanner + ".jpg"}
-                                        alt="First slide"
+                                        alt="footer banner"
                                         style={{ alignSelf: 'center' }}
                                     />
                                     <Carousel.Caption class="carousel-caption">
@@ -133,7 +133,7 @@ export default class Banner extends Component {
                                     <img
                                         className="d-block tinted subbanner-img"
                                         src={"./images/subbanner" + subbanner + ".jpg"}
-                                        alt="First slide"
+                                        alt="separation banner"
                                         style={{ alignSelf: 'center' }}
                                     />
                                     <Carousel.Caption class="carousel-caption">

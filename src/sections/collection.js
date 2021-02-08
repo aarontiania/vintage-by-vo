@@ -24,6 +24,10 @@ export default class Collection extends Component {
         }
     }
 
+    id(){
+        return Math.random().toString(36).substr(2, 9);
+    }
+
     chunker(arr, size) {
         var myArray = [];
         for (var i = 0; i < arr.length; i += size) {
@@ -238,3 +242,22 @@ export default class Collection extends Component {
 // },
 // "sold":true,
 // "status":"PURCHASED"},
+
+// {
+//     "id":"e2qn4uijh",
+//     "name":"Pochette Accessories",
+//     "brand": "Louis Vuitton",
+//     "images": "./"
+//     "has_video":
+//     false,
+//     "price":{
+//         "price_amount":"20.00",
+//         "currency_symbol":"$",
+//         "currency_name":"USD",
+//         "international_shipping_cost":null,
+//         "national_shipping_cost":"4.00",
+//         "discounted_price_amount":null,
+//         "discount_percentage":null
+//     },
+//     "onsale": true,
+// }

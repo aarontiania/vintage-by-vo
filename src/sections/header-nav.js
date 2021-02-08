@@ -17,18 +17,18 @@ export default class Header extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="m-auto">
-                            <Nav.Link as={Link} to="/vintage-by-vo/#">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/vintage-by-vo/#/collection">Collection</Nav.Link>
-                            <Nav.Link as={Link} to="/vintage-by-vo/#/designers">Shop Designer</Nav.Link>
+                            <Nav.Link as={Link} to="/#">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/#/collection">Collection</Nav.Link>
+                            <Nav.Link as={Link} to="/#/designers">Shop Designer</Nav.Link>
                             <NavDropdown title="About Us" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/vintage-by-vo/#/about">About Us</NavDropdown.Item>
-                                <NavDropdown.Item href="/vintage-by-vo/#/care">Item Care</NavDropdown.Item>
-                                <NavDropdown.Item href="/vintage-by-vo/#/shipping">Shipping</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/#/about">About Us</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/#/care">Item Care</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/#/shipping">Shipping</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="https://www.instagram.com/uniandkoa/" target="_blank" rel="noreferrer">My Bunnies</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="https://www.instagram.com/uniandkoa/" target="_blank" rel="noreferrer">My Bunnies</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="/vintage-by-vo/#/contact">Contact</Nav.Link>
-                            <Nav.Link as={Link} to="/vintage-by-vo/#/testing">Test Page</Nav.Link>
+                            <Nav.Link as={Link} to="/#/contact">Contact</Nav.Link>
+                            <Nav.Link as={Link} to="/#/testing">Test Page</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

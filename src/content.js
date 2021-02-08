@@ -22,7 +22,7 @@ export default class Content extends Component {
         this.state = {
             isLoaded: false,
             products: [],
-            testingenv: false // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
+            testingenv: true // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
         }
     }
 
