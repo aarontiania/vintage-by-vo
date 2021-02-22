@@ -22,185 +22,99 @@ export default class Content extends Component {
         this.state = {
             isLoaded: false,
             products: [],
+            brands: [],
             testingenv: true // USE THIS TO SWITCH BETWEEN TESTING AND LIVE INFORMATION
         }
     }
 
     async componentDidMount() {
-        var ashdepop = "https://webapi.depop.com/api/v1/shop/27178787/products/?limit=1000";
-        var proxyurl = "https://cors-anywhere.herokuapp.com/";
-        var depopurl = ashdepop;
+        // var ashdepop = "https://webapi.depop.com/api/v1/shop/27178787/products/?limit=1000";
+        // var proxyurl = "https://cors-anywhere.herokuapp.com/";
+        // var depopurl = ashdepop;
 
         if (!this.state.testingenv) {
-            fetch(proxyurl + depopurl)
-                .then(blob => blob.json())
-                .then(data => {
-
-                    let availableProducts = []
-                    data.products.forEach((item) => {
-                        if (item.sold === false && item.status === "ONSALE") {
-                            console.log(item)
-                            availableProducts.push(item);
-                        }
-                    })
-
-                    this.setState({
-                        isLoaded: true,
-                        products: availableProducts
-                    });
-                })
-                .catch(e => {
-                    console.log(e);
-                    return e;
-                });
+            // Retrieve list of brands 
+                //ex: { d: "Dior", lv: "Louis Vuitton"}
+            // Load products for Collection page
+            // Load brands to popiulate for Designers page
         } else {
             this.setState({
                 isLoaded: true,
                 products: [
                     {
-                        "id": 214613027,
-                        "slug": "vintagebyvo-louis-vuitton-keypouch-damier-ebene",
-                        "preview": {
-                            "150": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P2.jpg",
-                            "210": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P4.jpg",
-                            "320": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P5.jpg",
-                            "480": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P6.jpg",
-                            "640": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P1.jpg",
-                            "960": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P7.jpg",
-                            "1280": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P8.jpg"
-                        },
-                        "has_video": false,
+                        "id": "e2qn4uijh",
+                        "name": "Pochette Accessories",
+                        "brand": "Louis Vuitton",
+                        "brandTag": "lv",
+                        "images": [
+                            "./images/placeholderproducts/a1.jpg",
+                            "./images/placeholderproducts/a2.jpg",
+                            "./images/placeholderproducts/a3.jpg"
+                        ],
                         "price": {
                             "price_amount": "350.00",
                             "currency_symbol": "$",
                             "currency_name": "USD",
                             "international_shipping_cost": null,
-                            "national_shipping_cost": "0.00",
+                            "national_shipping_cost": "4.00",
                             "discounted_price_amount": null,
                             "discount_percentage": null
                         },
-                        "sold": false, "status": "ONSALE"
+                        "onsale": true,
                     },
                     {
-                        "id": 214611620,
-                        "slug": "vintagebyvo-louis-vuitton-pochette-accessoires",
-                        "preview": {
-                            "150": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P2.jpg",
-                            "210": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P4.jpg",
-                            "320": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P5.jpg",
-                            "480": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P6.jpg",
-                            "640": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P1.jpg",
-                            "960": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P7.jpg",
-                            "1280": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P8.jpg"
-                        },
-                        "has_video": false,
-                        "price": {
-                            "price_amount": "750.00",
-                            "currency_symbol": "$",
-                            "currency_name": "USD",
-                            "international_shipping_cost": null,
-                            "national_shipping_cost": "0.00",
-                            "discounted_price_amount": null,
-                            "discount_percentage": null
-                        }, "sold": false, "status": "ONSALE"
-                    }, {
-                        "id": 215397628,
-                        "slug": "vintagebyvo-dior-saddle-bag-test-test",
-                        "preview": {
-                            "150": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P2.jpg",
-                            "210": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P4.jpg",
-                            "320": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P5.jpg",
-                            "480": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P6.jpg",
-                            "640": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P1.jpg",
-                            "960": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P7.jpg",
-                            "1280": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P8.jpg"
-                        },
-                        "has_video": false,
-                        "price": {
-                            "price_amount": "999.00",
-                            "currency_symbol": "$",
-                            "currency_name": "USD",
-                            "international_shipping_cost": null,
-                            "national_shipping_cost": "0.00",
-                            "discounted_price_amount": null,
-                            "discount_percentage": null
-                        }, "sold": false, "status": "ONSALE"
-                    }, {
-                        "id": 214613027,
-                        "slug": "vintagebyvo-louis-vuitton-keypouch-damier-ebene",
-                        "preview": {
-                            "150": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P2.jpg",
-                            "210": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P4.jpg",
-                            "320": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P5.jpg",
-                            "480": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P6.jpg",
-                            "640": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P1.jpg",
-                            "960": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P7.jpg",
-                            "1280": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927060766_e9dffe0f167545aa966c84903b53fe9b/P8.jpg"
-                        },
-                        "has_video": false,
+                        "id": "spepmna4o",
+                        "name": "Saddle Bag",
+                        "brand": "Dior",
+                        "brandTag": "d",
+                        "images": [
+                            "./images/placeholderproducts/c1.jpg",
+                            "./images/placeholderproducts/c2.jpg",
+                            "./images/placeholderproducts/c3.jpg"
+                        ],
                         "price": {
                             "price_amount": "350.00",
                             "currency_symbol": "$",
                             "currency_name": "USD",
                             "international_shipping_cost": null,
-                            "national_shipping_cost": "0.00",
+                            "national_shipping_cost": "4.00",
                             "discounted_price_amount": null,
                             "discount_percentage": null
                         },
-                        "sold": false, "status": "ONSALE"
+                        "onsale": true,
                     },
                     {
-                        "id": 214611620,
-                        "slug": "vintagebyvo-louis-vuitton-pochette-accessoires",
-                        "preview": {
-                            "150": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P2.jpg",
-                            "210": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P4.jpg",
-                            "320": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P5.jpg",
-                            "480": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P6.jpg",
-                            "640": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P1.jpg",
-                            "960": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P7.jpg",
-                            "1280": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/927036956_8034a60203b44442a0795109176fab92/P8.jpg"
-                        },
-                        "has_video": false,
+                        "id": "wtl8ptfqp",
+                        "name": "Damier Ebene Canvas",
+                        "brand": "Louis Vuitton",
+                        "brandTag": "lv",
+                        "images": [
+                            "./images/placeholderproducts/b1.jpg",
+                            "./images/placeholderproducts/b2.jpg",
+                            "./images/placeholderproducts/b3.jpg"
+                        ],
                         "price": {
-                            "price_amount": "750.00",
+                            "price_amount": "235.00",
                             "currency_symbol": "$",
                             "currency_name": "USD",
                             "international_shipping_cost": null,
-                            "national_shipping_cost": "0.00",
+                            "national_shipping_cost": "4.00",
                             "discounted_price_amount": null,
                             "discount_percentage": null
-                        }, "sold": false, "status": "ONSALE"
-                    }, {
-                        "id": 215397628,
-                        "slug": "vintagebyvo-dior-saddle-bag-test-test",
-                        "preview": {
-                            "150": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P2.jpg",
-                            "210": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P4.jpg",
-                            "320": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P5.jpg",
-                            "480": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P6.jpg",
-                            "640": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P1.jpg",
-                            "960": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P7.jpg",
-                            "1280": "https://d2h1pu99sxkfvn.cloudfront.net/b0/27178787/929212816_7a64d384ff5e458285d3c157bc3b2591/P8.jpg"
                         },
-                        "has_video": false,
-                        "price": {
-                            "price_amount": "999.00",
-                            "currency_symbol": "$",
-                            "currency_name": "USD",
-                            "international_shipping_cost": null,
-                            "national_shipping_cost": "0.00",
-                            "discounted_price_amount": null,
-                            "discount_percentage": null
-                        }, "sold": false, "status": "ONSALE"
+                        "onsale": true,
                     }
-                ]
+                ],
+                brands: {
+                    d: "Dior",
+                    lv: "Louis Vuitton"
+                }
             });
         }
     }
 
     render() {
-        const { products, isLoaded, testingenv } = this.state;
+        const { brands, products, isLoaded, testingenv } = this.state;
         if (!isLoaded) {
             return (
                 <div id="collection">
@@ -226,16 +140,16 @@ export default class Content extends Component {
                                 <HashRouter>
                                     <Switch>
                                         <Route exact path='/' render={() => {
-                                            return (<Home products={products} isLoaded={isLoaded} testingenv={testingenv} />)
+                                            return (<Home products={products} isLoaded={isLoaded} brands={brands} testingenv={testingenv} />)
                                         }} />
                                         <Route exact path='/#/' render={() => {
-                                            return (<Home products={products} isLoaded={isLoaded} testingenv={testingenv} />)
+                                            return (<Home products={products} isLoaded={isLoaded} brands={brands} testingenv={testingenv} />)
                                         }} />
                                         <Route exact path='/collection' render={() => {
-                                            return (<Collection products={products} isLoaded={isLoaded} />)
+                                            return (<Collection products={products} brands={brands} isLoaded={isLoaded} />)
                                         }} />
                                         <Route exact path='/designers' render={() => {
-                                            return (<Designers products={products} isLoaded={isLoaded} />)
+                                            return (<Designers products={products} brands={brands} isLoaded={isLoaded} />)
                                         }} />
                                         <Route exact path='/about' render={() => {
                                             return (<About products={products} isLoaded={isLoaded} />)

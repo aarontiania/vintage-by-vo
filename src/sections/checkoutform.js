@@ -1,5 +1,6 @@
 // import '../css/swipe.css';
 import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
 
@@ -11,13 +12,20 @@ const CheckoutForm = () => {
     const [processing, setProcessing] = useState(false);
     const [paymentMethod, setPaymentMethod] = useState(null);
     const [billingDetails, setBillingDetails] = useState({
-        email: '',
-        phone: '',
         name: '',
+        email: '',
+        address: {
+            line1: '',
+            city: '',
+            state: '',
+            postal_code: '',
+        }
     });
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+
 
         if (!stripe || !elements) {
             // Stripe.js has not loaded yet. Make sure to disable
@@ -54,9 +62,14 @@ const CheckoutForm = () => {
         setProcessing(false);
         setPaymentMethod(null);
         setBillingDetails({
-            email: '',
-            phone: '',
             name: '',
+            email: '',
+            address: {
+                line1: '',
+                city: '',
+                state: '',
+                postal_code: '',
+            }
         });
     };
 
@@ -74,40 +87,46 @@ const CheckoutForm = () => {
             <form className="Form" onSubmit={handleSubmit}>
                 <fieldset className="FormGroup">
                     <Field
+                        name="name"
                         label="Name"
-                        id="name"
                         type="text"
                         placeholder="Jane Doe"
                         required
-                        autoComplete="name"
-                        value={billingDetails.name}
-                        onChange={(e) => {
-                            setBillingDetails({ ...billingDetails, name: e.target.value });
-                        }}
                     />
                     <Field
+                        name="email"
                         label="Email"
-                        id="email"
                         type="email"
-                        placeholder="janedoe@gmail.com"
+                        placeholder="jane.doe@example.com"
                         required
-                        autoComplete="email"
-                        value={billingDetails.email}
-                        onChange={(e) => {
-                            setBillingDetails({ ...billingDetails, email: e.target.value });
-                        }}
                     />
                     <Field
-                        label="Phone"
-                        id="phone"
-                        type="tel"
-                        placeholder="(941) 555-0123"
+                        name="address"
+                        label="Address"
+                        type="text"
+                        placeholder="185 Berry St. Suite 550"
                         required
-                        autoComplete="tel"
-                        value={billingDetails.phone}
-                        onChange={(e) => {
-                            setBillingDetails({ ...billingDetails, phone: e.target.value });
-                        }}
+                    />
+                    <Field
+                        name="city"
+                        label="City"
+                        type="text"
+                        placeholder="San Francisco"
+                        required
+                    />
+                    <Field
+                        name="state"
+                        label="State"
+                        type="text"
+                        placeholder="California"
+                        required
+                    />
+                    <Field
+                        name="zip"
+                        label="ZIP"
+                        type="text"
+                        placeholder="94103"
+                        required
                     />
                 </fieldset>
                 <fieldset className="FormGroup">
@@ -133,7 +152,7 @@ const CARD_OPTIONS = {
     style: {
         base: {
             iconColor: '#c4f0ff',
-            color: '#fff',
+            color: 'black',
             fontWeight: 500,
             fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
             fontSize: '16px',
@@ -154,7 +173,9 @@ const CARD_OPTIONS = {
 
 const CardField = ({ onChange }) => (
     <div className="FormRow">
-        <CardElement options={CARD_OPTIONS} onChange={onChange} />
+        <Container>
+            <CardElement options={CARD_OPTIONS} onChange={onChange} />
+        </Container>
     </div>
 );
 

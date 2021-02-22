@@ -194,13 +194,31 @@ white
   opacity: 1;
   color: black;
   font-family: Helvetica;
-  font-weight: bold;
   transition: .5s ease;
   backface-visibility: hidden;
+  padding-top: 100%;
 }
 
 .productname:hover {
   color: black;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.productbrand {
+  font-size: 80%;
+  opacity: 1;
+  color: gray;
+  font-family: Helvetica;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.productbrand:hover {
+  color: gray;
   text-decoration: none;
   cursor: pointer;
   opacity: 0.3;

@@ -11,20 +11,15 @@ export default class Collection extends Component {
         super(props);
         this.state = {
             chunkSize: 4,
-            depop: "Vintagebyvo",
-            depopLink: "https://www.depop.com/products/",
             isLoaded: this.props.isLoaded,
             homepage: this.props.homepage,
             products: this.props.products,
             brandSpecified: this.getQueryStringValue('b'),
-            brands: {
-                d: "Dior",
-                lv: "Louis Vuitton"
-            }
+            brands: this.props.brands
         }
     }
 
-    id(){
+    id() {
         return Math.random().toString(36).substr(2, 9);
     }
 
@@ -36,15 +31,6 @@ export default class Collection extends Component {
         return myArray;
     }
 
-    formatProductTitle(str, user) {
-        return str.replace(/-/g, " ").replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).replace(user + " ", "");
-    }
-
-    // eslint-disable-next-line
-    formatProductTitle(str, user, brand) {
-        return str.replace(/-/g, " ").replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).replace(user + " ", "").replace(brand, "");
-    }
-
     getQueryStringValue(key) {
         // eslint-disable-next-line
         return decodeURIComponent(window.location.hash.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
@@ -54,17 +40,9 @@ export default class Collection extends Component {
         window.open(link);
     }
 
-    searchBrandName(str, brand) {
-        if (str.includes(brand)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     render() {
-        const { chunkSize, isLoaded, products, depopLink, depop, brands, brandSpecified, homepage } = this.state;
-        const { chunker, imageClick, formatProductTitle, searchBrandName } = this;
+        const { chunkSize, isLoaded, products, brands, brandSpecified, homepage } = this.state;
+        const { chunker, imageClick } = this;
 
         if (!isLoaded) {// IF NOT LOADED
 
@@ -98,12 +76,13 @@ export default class Collection extends Component {
 
             products.forEach((product) => {
                 if (product != null) {
-                    let title = formatProductTitle(product.slug, depop);
-                    if (searchBrandName(title, brands[brandSpecified])) {
+                    if (product.brandTag === brandSpecified) {
                         specificItems.push(product);
                     }
                 }
             });
+
+            console.log(specificItems);
 
             var chunkedproducts = chunker(specificItems, chunkSize);
 
@@ -115,16 +94,16 @@ export default class Collection extends Component {
                         {
                             chunkedproducts.map((productChunk) => {
                                 const productsCols = productChunk.map((product) => {
-                                    if (product.sold === false) {
+                                    if (product.onsale === true) {
                                         return (
                                             <Col xs lg="2" className="column">
-                                                <Image src={Object.values(product.preview)[5]}
+                                                <Image src={product.images[0]}
                                                     className="productimg"
                                                     rounded
-                                                    onClick={() => imageClick(depopLink + product.slug)}
+                                                    onClick={() => imageClick("PLACEHOLDER LINK")}
                                                 />
                                                 <br />
-                                                <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop, brands[brandSpecified])}</a>
+                                                <a href={"PLACEHOLDER LINK"} className="productname">{product.name}</a>
                                                 <br />
                                                 <text className="productprice">{"$ " + product.price.price_amount}</text>
                                             </Col>
@@ -150,17 +129,19 @@ export default class Collection extends Component {
                     {
                         chunkedproducts.map((productChunk) => {
                             const productsCols = productChunk.map((product) => {
-                                if (product.sold === false && countdown !== 0) {
+                                if (product.onsale === true && countdown !== 0) {
                                     countdown--;
                                     return (
                                         <Col xs lg="2" className="column">
-                                            <Image src={Object.values(product.preview)[5]}
+                                            <Image src={product.images[0]}
                                                 className="productimg"
                                                 rounded
-                                                onClick={() => imageClick(depopLink + product.slug)}
+                                                onClick={() => imageClick("PLACEHOLDER LINK")}
                                             />
                                             <br />
-                                            <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop, brands[brandSpecified])}</a>
+                                            <a href={"PLACEHOLDER LINK"} className="productname">{product.name}</a>
+                                            <br />
+                                            <a href={"/#/collection?b=" + product.brandTag} className="productbrand">{product.brand}</a>
                                             <br />
                                             <text className="productprice">{"$ " + product.price.price_amount}</text>
                                         </Col>
@@ -190,16 +171,18 @@ export default class Collection extends Component {
                             {
                                 chunkedproducts.map((productChunk) => {
                                     const productsCols = productChunk.map((product) => {
-                                        if (product.sold === false) {
+                                        if (product.onsale === true) {
                                             return (
                                                 <Col xs lg="2" className="column">
-                                                    <Image src={Object.values(product.preview)[5]}
+                                                    <Image src={product.images[0]}
                                                         className="productimg"
                                                         rounded
-                                                        onClick={() => imageClick(depopLink + product.slug)}
+                                                        onClick={() => imageClick("PLACEHOLDER LINK")}
                                                     />
                                                     <br />
-                                                    <a href={depopLink + product.slug} target="_blank" rel="noreferrer" className="productname">{formatProductTitle(product.slug, depop)}</a>
+                                                    <a href={"PLACEHOLDER LINK"} target="_blank" rel="noreferrer" className="productname">{product.name}</a>
+                                                    <br />
+                                                    <a href={"/#/collection?b=" + product.brandTag} className="productbrand">{product.brand}</a>
                                                     <br />
                                                     <text className="productprice">{"$ " + product.price.price_amount}</text>
                                                 </Col>
@@ -219,7 +202,7 @@ export default class Collection extends Component {
     }
 }
 // {"id":212157839,
-// "slug":"szphia-brandy-melville-john-galt-e9cd",
+// "name":"szphia-brandy-melville-john-galt-e9cd",
 // "preview":{
 //     "150":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P2.jpg",
 //     "210":"https://d2h1pu99sxkfvn.cloudfront.net/b0/21506652/917448197_5f68e1755f7e4c0386c23bfcf0b0b269/P4.jpg",
@@ -247,11 +230,15 @@ export default class Collection extends Component {
 //     "id":"e2qn4uijh",
 //     "name":"Pochette Accessories",
 //     "brand": "Louis Vuitton",
-//     "images": "./"
+//     "images": [
+//         "./images/placeholderproducts/a1.jpg",
+//         "./images/placeholderproducts/a2.jpg",
+//         "./images/placeholderproducts/a3.jpg"
+//     ],
 //     "has_video":
 //     false,
 //     "price":{
-//         "price_amount":"20.00",
+//         "price_amount":"350.00",
 //         "currency_symbol":"$",
 //         "currency_name":"USD",
 //         "international_shipping_cost":null,
@@ -260,4 +247,4 @@ export default class Collection extends Component {
 //         "discount_percentage":null
 //     },
 //     "onsale": true,
-// }
+// },

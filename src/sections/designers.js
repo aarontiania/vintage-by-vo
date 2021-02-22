@@ -14,10 +14,7 @@ export default class Designers extends Component {
             isLoaded: false,
             homepage: this.props.homepage,
             products: this.props.products,
-            brands: {
-                d: "Dior",
-                lv: "Louis Vuitton"
-            },
+            brands: this.props.brands,
             brandsToPopulate: []
         }
     }
@@ -26,12 +23,14 @@ export default class Designers extends Component {
 
         const { brands, products } = this.state;
 
-        let brandArr = []
+        let brandArr = [];
         products.forEach((item) => {
-            brandArr.push(this.formatProductTitle(item.slug))
+            brandArr.push(item.brand);
         });
 
-        let arr = []
+        let arr = [];
+        console.log(brands);
+        console.log(products);
         Object.values(brands).forEach((brandName) => {
             if (brandArr.find(a => a.includes(brandName))) {
                 arr.push(brandName);
@@ -134,7 +133,7 @@ export default class Designers extends Component {
         } else {
 
             chunkedproducts = chunker(brandsToPopulate, chunkSize);
-
+            
             return (
                 <div id="designers">
                     <h1 className="sectionheader">designers</h1>
