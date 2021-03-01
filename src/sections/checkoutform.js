@@ -13,13 +13,8 @@ const CheckoutForm = () => {
     const [paymentMethod, setPaymentMethod] = useState(null);
     const [billingDetails, setBillingDetails] = useState({
         name: '',
+        phone: '',
         email: '',
-        address: {
-            line1: '',
-            city: '',
-            state: '',
-            postal_code: '',
-        }
     });
 
     const handleSubmit = async (event) => {
@@ -63,13 +58,8 @@ const CheckoutForm = () => {
         setPaymentMethod(null);
         setBillingDetails({
             name: '',
+            phone: '',
             email: '',
-            address: {
-                line1: '',
-                city: '',
-                state: '',
-                postal_code: '',
-            }
         });
     };
 
@@ -88,27 +78,52 @@ const CheckoutForm = () => {
                 <fieldset className="FormGroup">
                     <Field
                         name="name"
+                        id="name"
                         label="Name"
                         type="text"
                         placeholder="Jane Doe"
                         required
+                        value={billingDetails.name}
+                        onChange={(e) => {
+                            setBillingDetails({ ...billingDetails, name: e.target.value });
+                        }}
                     />
                     <Field
                         name="email"
+                        id="email"
                         label="Email"
                         type="email"
                         placeholder="jane.doe@example.com"
                         required
+                        value={billingDetails.email}
+                        onChange={(e) => {
+                            setBillingDetails({ ...billingDetails, email: e.target.value });
+                        }}
+                    />
+                    <Field
+                        label="Phone"
+                        id="phone"
+                        type="tel"
+                        placeholder="(941) 555-0123"
+                        required
+                        autoComplete="tel"
+                        value={billingDetails.phone}
+                        onChange={(e) => {
+                            setBillingDetails({ ...billingDetails, phone: e.target.value });
+                        }}
                     />
                     <Field
                         name="address"
+                        id="address"
                         label="Address"
                         type="text"
                         placeholder="185 Berry St. Suite 550"
                         required
+
                     />
                     <Field
                         name="city"
+                        id="city"
                         label="City"
                         type="text"
                         placeholder="San Francisco"
@@ -116,17 +131,21 @@ const CheckoutForm = () => {
                     />
                     <Field
                         name="state"
+                        id="state"
                         label="State"
                         type="text"
                         placeholder="California"
                         required
+
                     />
                     <Field
                         name="zip"
+                        id="zip"
                         label="ZIP"
                         type="text"
                         placeholder="94103"
                         required
+
                     />
                 </fieldset>
                 <fieldset className="FormGroup">
@@ -152,13 +171,13 @@ const CARD_OPTIONS = {
     style: {
         base: {
             iconColor: '#c4f0ff',
-            color: 'black',
+            color: 'white',
             fontWeight: 500,
             fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
             fontSize: '16px',
             fontSmoothing: 'antialiased',
             ':-webkit-autofill': {
-                color: '#fce883',
+                color: 'white',
             },
             '::placeholder': {
                 color: '#87bbfd',
@@ -224,7 +243,7 @@ const ErrorMessage = ({ children }) => (
                 d="M8.5,17 C3.80557963,17 0,13.1944204 0,8.5 C0,3.80557963 3.80557963,0 8.5,0 C13.1944204,0 17,3.80557963 17,8.5 C17,13.1944204 13.1944204,17 8.5,17 Z"
             />
             <path
-                fill="#6772e5"
+                fill="black"
                 d="M8.5,7.29791847 L6.12604076,4.92395924 C5.79409512,4.59201359 5.25590488,4.59201359 4.92395924,4.92395924 C4.59201359,5.25590488 4.59201359,5.79409512 4.92395924,6.12604076 L7.29791847,8.5 L4.92395924,10.8739592 C4.59201359,11.2059049 4.59201359,11.7440951 4.92395924,12.0760408 C5.25590488,12.4079864 5.79409512,12.4079864 6.12604076,12.0760408 L8.5,9.70208153 L10.8739592,12.0760408 C11.2059049,12.4079864 11.7440951,12.4079864 12.0760408,12.0760408 C12.4079864,11.7440951 12.4079864,11.2059049 12.0760408,10.8739592 L9.70208153,8.5 L12.0760408,6.12604076 C12.4079864,5.79409512 12.4079864,5.25590488 12.0760408,4.92395924 C11.7440951,4.59201359 11.2059049,4.59201359 10.8739592,4.92395924 L8.5,7.29791847 L8.5,7.29791847 Z"
             />
         </svg>

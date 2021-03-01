@@ -98,7 +98,7 @@ body {
 }
 
 .FormRowInput:-webkit-autofill {
-  -webkit-text-fill-color: #fce883;
+  -webkit-text-fill-color: white;
   /* Hack to hide the default webkit autofill */
   transition: background-color 100000000s;
   animation: 1ms void-animation-out;
@@ -108,7 +108,7 @@ body {
   font-size: 16px;
   width: 100%;
   padding: 11px 15px 11px 0;
-  color: rgb(117, 112, 112);
+  color: white;
   background-color: transparent;
   animation: 1ms void-animation-out;
 }
@@ -166,7 +166,7 @@ body {
 }
 
 .ErrorMessage {
-  color: #fff;
+  color: black;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -198,10 +198,11 @@ body {
   margin-bottom: 8px;
   font-size: 17px;
   text-align: center;
+  /* font-family: Monday; */
 }
 
 .ResultMessage {
-  color: #9cdbff;
+  color: black;
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 25px;
