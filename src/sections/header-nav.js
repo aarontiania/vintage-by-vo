@@ -17,17 +17,17 @@ export default class Header extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="m-auto">
-                            <Nav.Link as={Link} to="/#">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/#/collection">Collection</Nav.Link>
-                            <Nav.Link as={Link} to="/#/designers">Shop Designer</Nav.Link>
+                            <Nav.Link as={Link} to="/vintage-by-vo/#">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/vintage-by-vo/#/collection">Collection</Nav.Link>
+                            <Nav.Link as={Link} to="/vintage-by-vo/#/designers">Shop Designer</Nav.Link>
                             <NavDropdown title="About Us" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/#/about">About Us</NavDropdown.Item>
-                                <NavDropdown.Item href="/#/care">Item Care</NavDropdown.Item>
-                                <NavDropdown.Item href="/#/shipping">Shipping</NavDropdown.Item>
+                                <NavDropdown.Item href="/vintage-by-vo/#/about">About Us</NavDropdown.Item>
+                                <NavDropdown.Item href="/vintage-by-vo/#/care">Item Care</NavDropdown.Item>
+                                <NavDropdown.Item href="/vintage-by-vo/#/shipping">Shipping</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="https://www.instagram.com/uniandkoa/" target="_blank" rel="noreferrer">My Bunnies</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="/#/contact">Contact</Nav.Link>
+                            <Nav.Link href="/vintage-by-vo/#/contact">Contact</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
