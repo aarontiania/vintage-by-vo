@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.ba5715ae.chunk.css",
-    "main.js": "/static/js/main.1ab8d302.chunk.js",
-    "main.js.map": "/static/js/main.1ab8d302.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.b326d38b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.b326d38b.js.map",
-    "static/css/2.ae9f1eb3.chunk.css": "/static/css/2.ae9f1eb3.chunk.css",
-    "static/js/2.9dec13a9.chunk.js": "/static/js/2.9dec13a9.chunk.js",
-    "static/js/2.9dec13a9.chunk.js.map": "/static/js/2.9dec13a9.chunk.js.map",
-    "static/js/3.20664fd5.chunk.js": "/static/js/3.20664fd5.chunk.js",
-    "static/js/3.20664fd5.chunk.js.map": "/static/js/3.20664fd5.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.ae9f1eb3.chunk.css.map": "/static/css/2.ae9f1eb3.chunk.css.map",
-    "static/css/main.ba5715ae.chunk.css.map": "/static/css/main.ba5715ae.chunk.css.map",
-    "static/js/2.9dec13a9.chunk.js.LICENSE.txt": "/static/js/2.9dec13a9.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/static/media/Waltograph.68f4c515.woff",
-    "static/media/index.css": "/static/media/Monday_Routines.e4f791a0.ttf"
+    "main.css": "/vintage-by-vo/static/css/main.45151f57.chunk.css",
+    "main.js": "/vintage-by-vo/static/js/main.1ab8d302.chunk.js",
+    "main.js.map": "/vintage-by-vo/static/js/main.1ab8d302.chunk.js.map",
+    "runtime-main.js": "/vintage-by-vo/static/js/runtime-main.54ae40c0.js",
+    "runtime-main.js.map": "/vintage-by-vo/static/js/runtime-main.54ae40c0.js.map",
+    "static/css/2.ae9f1eb3.chunk.css": "/vintage-by-vo/static/css/2.ae9f1eb3.chunk.css",
+    "static/js/2.9dec13a9.chunk.js": "/vintage-by-vo/static/js/2.9dec13a9.chunk.js",
+    "static/js/2.9dec13a9.chunk.js.map": "/vintage-by-vo/static/js/2.9dec13a9.chunk.js.map",
+    "static/js/3.20664fd5.chunk.js": "/vintage-by-vo/static/js/3.20664fd5.chunk.js",
+    "static/js/3.20664fd5.chunk.js.map": "/vintage-by-vo/static/js/3.20664fd5.chunk.js.map",
+    "index.html": "/vintage-by-vo/index.html",
+    "static/css/2.ae9f1eb3.chunk.css.map": "/vintage-by-vo/static/css/2.ae9f1eb3.chunk.css.map",
+    "static/css/main.45151f57.chunk.css.map": "/vintage-by-vo/static/css/main.45151f57.chunk.css.map",
+    "static/js/2.9dec13a9.chunk.js.LICENSE.txt": "/vintage-by-vo/static/js/2.9dec13a9.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/vintage-by-vo/static/media/Waltograph.68f4c515.woff",
+    "static/media/index.css": "/vintage-by-vo/static/media/Monday_Routines.e4f791a0.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.b326d38b.js",
+    "static/js/runtime-main.54ae40c0.js",
     "static/css/2.ae9f1eb3.chunk.css",
     "static/js/2.9dec13a9.chunk.js",
-    "static/css/main.ba5715ae.chunk.css",
+    "static/css/main.45151f57.chunk.css",
     "static/js/main.1ab8d302.chunk.js"
   ]
 }
