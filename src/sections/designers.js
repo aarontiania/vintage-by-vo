@@ -108,13 +108,13 @@ export default class Designers extends Component {
                                         let brandTag = getKeyByValue(brands, product);
                                         return (
                                             <Col xs lg="2" className="column">
-                                                <Link to={"/vintage-by-vo/collection?b=" + brandTag}>
+                                                <Link to={"/collection?b=" + brandTag}>
                                                     <Image src={"./images/" + brandTag + "-icon.jpg"}
                                                         className="productimg"
                                                         roundedCircle
                                                     />
                                                 </Link>
-                                                <Nav.Link as={Link} to={"/vintage-by-vo/collection?b=" + brandTag} className="productname">{product}</Nav.Link>
+                                                <Nav.Link as={Link} to={"/collection?b=" + brandTag} className="productname">{product}</Nav.Link>
                                             </Col>
                                         );
                                     }
@@ -148,13 +148,13 @@ export default class Designers extends Component {
 
                                         return (
                                             <Col xs lg="2" className="column">
-                                                <Link to={"/vintage-by-vo/collection?b=" + brandTag}>
+                                                <Link to={"/collection?b=" + brandTag}>
                                                     <Image src={"./images/" + brandTag + "-icon.jpg"}
                                                         className="productimg"
                                                         rounded
                                                     />
                                                 </Link>
-                                                <Nav.Link as={Link} to={"/vintage-by-vo/collection?b=" + brandTag} className="productname">{product}</Nav.Link>
+                                                <Nav.Link as={Link} to={"/collection?b=" + brandTag} className="productname">{product}</Nav.Link>
                                             </Col>
                                         );
                                     }

@@ -224,31 +224,31 @@ export default class Content extends Component {
                             >
                                 <HashRouter>
                                     <Switch>
-                                        <Route exact path='/vintage-by-vo/' render={() => {
+                                        <Route exact path='/' render={() => {
                                             return (<Home products={products} isLoaded={isLoaded} testingenv={testingenv} />)
                                         }} />
-                                        <Route exact path='/vintage-by-vo/#/' render={() => {
+                                        <Route exact path='/#/' render={() => {
                                             return (<Home products={products} isLoaded={isLoaded} testingenv={testingenv} />)
                                         }} />
-                                        <Route exact path='/vintage-by-vo/collection' render={() => {
+                                        <Route exact path='/collection' render={() => {
                                             return (<Collection products={products} isLoaded={isLoaded} />)
                                         }} />
-                                        <Route exact path='/vintage-by-vo/designers' render={() => {
+                                        <Route exact path='/designers' render={() => {
                                             return (<Designers products={products} isLoaded={isLoaded} />)
                                         }} />
-                                        <Route exact path='/vintage-by-vo/about' render={() => {
+                                        <Route exact path='/about' render={() => {
                                             return (<About products={products} isLoaded={isLoaded} />)
                                         }} />
-                                        <Route exact path='/vintage-by-vo/care' render={() => {
+                                        <Route exact path='/care' render={() => {
                                             return (<Care products={products} isLoaded={isLoaded} />)
                                         }} />
-                                        <Route exact path='/vintage-by-vo/shipping' render={() => {
+                                        <Route exact path='/shipping' render={() => {
                                             return (<Shipping products={products} isLoaded={isLoaded} />)
                                         }} />
-                                        <Route exact path='/vintage-by-vo/faq' render={() => {
+                                        <Route exact path='/faq' render={() => {
                                             return (<Faq products={products} isLoaded={isLoaded} />)
                                         }} />
-                                        <Route exact path='/vintage-by-vo/contact' render={() => {
+                                        <Route exact path='/contact' render={() => {
                                             return (<Contact products={products} isLoaded={isLoaded} />)
                                         }} />
                                         <Route render={() => {
